@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Iss.Entity
 {
-    public class OneAdPayment : IOneTimePayment
+    public class OneAdPayment(int paymentId, int reach, decimal price) : IOneTimePayment
     {
+        public int paymentId { get; set; } = paymentId;
+        public int reach { get; set; } = reach;
+        public decimal price { get; set; } = price;
     }
 }
