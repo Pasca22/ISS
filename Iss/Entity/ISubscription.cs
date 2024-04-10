@@ -8,5 +8,8 @@ namespace Iss.Entity
 {
     public interface ISubscription
     {
+   
+
+
     }
 }
