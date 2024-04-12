@@ -24,9 +24,5 @@ namespace Iss.Windows
             InitializeComponent();
         }
 
-        private void InfluencerName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

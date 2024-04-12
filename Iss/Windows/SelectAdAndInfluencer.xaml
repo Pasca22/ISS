@@ -13,7 +13,7 @@
                 <StackPanel Margin="30,30,30,0" Background="#800080" Width="250px">
                     <TextBlock Text="Select your influencer" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,0"/>
                     <StackPanel Orientation="Horizontal" Margin="10" Background="White" >
-                        <TextBox Name="InfluencerName" Width="150" Height="30" Margin="0,0,0,0" Text="Influencer name" Opacity="0.5" TextChanged="InfluencerName_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <TextBox Name="InfluencerName" Width="150" Height="30" Margin="0,0,0,0" Text="Influencer name" Opacity="0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         <Button Name="AddInfluencer" Content="Search" Width="50" Height="30" Margin="15,0,0,0" Foreground="Black" Background="{x:Null}" BorderThickness="0,0,0,0"/>
                     </StackPanel>
                     <ListBox Name="InfluencerList" ItemsSource="{Binding Influencer}" DisplayMemberPath="Name" SelectionMode="Single" Margin="10" Height="180" Background="#800080"/>
@@ -21,7 +21,7 @@
                 <StackPanel Background="#800080" Width="250px" Margin="200,30,30,0">
                     <TextBlock Text="Choose wich Ad to promote" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,0"/>
                     <StackPanel Orientation="Horizontal" Margin="10" Background="White" >
-                        <TextBox Name="AdName" Width="150" Height="30" Margin="0,0,0,0" Text="Ad name" Opacity="0.5" TextChanged="AdName_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <TextBox Name="AdName" Width="150" Height="30" Margin="0,0,0,0" Text="Ad name" Opacity="0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         <Button Name="AddAd" Content="Search" Width="50" Height="30" Margin="15,0,0,0" Foreground="Black" Background="{x:Null}" BorderThickness="0,0,0,0"/>
                     </StackPanel>
                     <ListBox Name="AdList" ItemsSource="{Binding Ad}" DisplayMemberPath="Name" SelectionMode="Single" Margin="10" Height="180" Background="#800080"/>
