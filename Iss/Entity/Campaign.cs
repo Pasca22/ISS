@@ -17,10 +17,10 @@ namespace Iss.Entity
 
         public Campaign(string campaignName, string targetAudience, DateTime startDate, int duration)
         {
-            campaignName = name;
-            targetAudience = targetAudience;
-            startDate = startDate;
-            duration = duration;
+            this.campaignName = campaignName;
+            this.targetAudience = targetAudience;
+            this.startDate = startDate;
+            this.duration = duration;
         }
     }
 }
