@@ -17,7 +17,7 @@ namespace Iss.Entity
 
         public Campaign(string campaignName, string targetAudience, DateTime startDate, int duration)
         {
-            campaignName = name;
+            campaignName = campaignName;
             targetAudience = targetAudience;
             startDate = startDate;
             duration = duration;
