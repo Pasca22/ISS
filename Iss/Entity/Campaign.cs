@@ -13,14 +13,14 @@ namespace Iss.Entity
         public DateTime startDate { get; set; }
         public int duration { get; set; }
 
-        public Campaign() { }
-
         public Campaign(string campaignName, string targetAudience, DateTime startDate, int duration)
         {
-            campaignName = campaignName;
-            targetAudience = targetAudience;
-            startDate = startDate;
-            duration = duration;
+
+            this.campaignName = campaignName;
+            this.targetAudience = targetAudience;
+            this.startDate = startDate;
+            this.duration = duration;
+
         }
     }
 }

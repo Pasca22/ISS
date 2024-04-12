@@ -10,11 +10,11 @@ namespace Iss.Entity
     {
         public List<Ad> ads { get;  set; }
         public List<string> targetAudience { get; set; }
-        public AdSet() { }
+
         public AdSet(List<Ad> ads, List<string> targetAudience)
         {
-            ads = ads;
-            targetAudience = targetAudience;
+            this.ads = ads;
+            this.targetAudience = targetAudience;
         }
 
         public void addAd(Ad ad)
