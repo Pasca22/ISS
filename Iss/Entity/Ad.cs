@@ -14,15 +14,13 @@ namespace Iss.Entity
         public string description { get; set; }
         public string websiteLink {  get; set; }
 
-        public Ad() { }
-        public Ad(string productName, List<string> mediaContent, string description, string websiteLink)
+        public Ad(string productName, List<string> photos, List<string> videos, string description, string websiteLink)
         {
-            productName = productName;
-            mediaContent = mediaContent;
-            description = description;
-            websiteLink = websiteLink;
+            this.productName = productName;
+            this.photos = photos;
+            this.videos = videos;
+            this.description = description;
+            this.websiteLink = websiteLink;
         }
-
-
     }
 }
