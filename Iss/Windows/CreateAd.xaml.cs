@@ -17,7 +17,7 @@ namespace Iss.Windows
     /// <summary>
     /// Interaction logic for CreateAd.xaml
     /// </summary>
-    public partial class CreateAd : Window
+    public partial class CreateAd : UserControl
     {
         public CreateAd()
         {
