@@ -111,7 +111,7 @@ FontSize="30" Height="200" Width="240"/>
             </StackPanel>
 
         </StackPanel>
-        <Button x:Name="goToPaymentButton" Content="Go To Payment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="510,830,0,0" Width="239" Height="70" Background="White" Foreground="Black" FontSize="18" Click="Button_Click"/>
+        <Button x:Name="goToPaymentButton" Content="Go To Payment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="510,830,0,0" Width="239" Height="70" Background="White" Foreground="Black" FontSize="18" />
 
 
     </Grid>
