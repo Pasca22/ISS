@@ -17,7 +17,7 @@ namespace Iss.Windows
     /// <summary>
     /// Interaction logic for SubscriptionsPage.xaml
     /// </summary>
-    public partial class SubscriptionsPage : Window
+    public partial class SubscriptionsPage : UserControl
     {
         public SubscriptionsPage()
         {

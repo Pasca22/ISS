@@ -17,7 +17,7 @@ namespace Iss.Windows
     /// <summary>
     /// Interaction logic for NegotiationPage.xaml
     /// </summary>
-    public partial class NegotiationPage : Window
+    public partial class NegotiationPage : UserControl
     {
         public NegotiationPage()
         {

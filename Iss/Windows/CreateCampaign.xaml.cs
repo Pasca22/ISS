@@ -17,7 +17,7 @@ namespace Iss.Windows
     /// <summary>
     /// Interaction logic for CreateCampaign.xaml
     /// </summary>
-    public partial class CreateCampaign : Window
+    public partial class CreateCampaign : UserControl
     {
         public CreateCampaign()
         {

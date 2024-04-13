@@ -17,7 +17,7 @@ namespace Iss.Windows
     /// <summary>
     /// Interaction logic for NegotiationHistory.xaml
     /// </summary>
-    public partial class NegotiationHistory : Window
+    public partial class NegotiationHistory : UserControl
     {
         public NegotiationHistory()
         {

@@ -27,7 +27,7 @@
                     <TextBlock Name="compensation" Text="Additional Compensation:" FontWeight="DemiBold" FontSize="15" TextAlignment="Center" VerticalAlignment="Top" ></TextBlock>
                     <TextBox Name="compensationContent"   FontSize="15" TextAlignment="Center" VerticalAlignment="Center" Height="20" Width="250"></TextBox>
                     <TextBlock Name="timeline" Text="Timeline:" FontWeight="DemiBold" FontSize="15" TextAlignment="Center" VerticalAlignment="Top" Height="20" Margin="0 20 0 0"/>
-                    <Calendar Name="calendar" SelectionMode="SingleRange" SelectedDatesChanged="Calendar2_SelectedDatesChanged"  Height="187" Width="181" RenderTransformOrigin="0.5,0.5">
+                    <Calendar Name="calendar" SelectionMode="SingleRange" Height="187" Width="181" RenderTransformOrigin="0.5,0.5">
                         <Calendar.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>

@@ -17,7 +17,7 @@ namespace Iss.Windows
     /// <summary>
     /// Interaction logic for AdAccountOverview.xaml
     /// </summary>
-    public partial class AdAccountOverview : Window
+    public partial class AdAccountOverview : UserControl
     {
         public AdAccountOverview()
         {

@@ -17,7 +17,7 @@ namespace Iss.Windows
     /// <summary>
     /// Interaction logic for SelectAdAndInfluencer.xaml
     /// </summary>
-    public partial class SelectAdAndInfluencer : Window
+    public partial class SelectAdAndInfluencer : UserControl
     {
         public SelectAdAndInfluencer()
         {

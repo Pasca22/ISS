@@ -17,12 +17,11 @@ namespace Iss.Windows
     /// <summary>
     /// Interaction logic for CreateAdSet.xaml
     /// </summary>
-    public partial class CreateAdSet : Window
+    public partial class CreateAdSet : UserControl
     {
         public CreateAdSet()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }
