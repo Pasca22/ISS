@@ -10,22 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Iss.Windows;
 
-namespace Iss
+namespace Iss.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for InfluencerStart.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InfluencerStart : Window
     {
-        public MainWindow()
+        public InfluencerStart()
         {
             InitializeComponent();
-            InfluencerStart influencerStart = new InfluencerStart();
-            influencerStart.Show();
         }
     }
 }
