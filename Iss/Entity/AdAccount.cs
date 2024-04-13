@@ -16,6 +16,14 @@ namespace Iss.Entity
         public string headquartersLocation { get; set; }
         public string authorisingInstituion { get; set; }
 
+        List<IOneTimePayment> oneTimePayments = new List<IOneTimePayment>();
+        List<Ad> ads = new List<Ad>();
+        List<AdSet> adSets = new List<AdSet>(); 
+        List<Campaign> campaigns = new List<Campaign>();
+        List<Collaboration> collaborations = new List<Collaboration>();
+        List<Request> requests = new List<Request>();
+        ISubscription? subscription;
+
         public AdAccount(string nameOfCompany, string domainOfActivity, string siteUrl, string password, string taxIdentificationNumber, string headquartersLocation, string authorisingInstituion)
         {
             this.nameOfCompany = nameOfCompany;
