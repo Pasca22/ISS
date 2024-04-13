@@ -18,7 +18,7 @@
                 <TextBox x:Name="searchTextBox" Width="750" Margin="10" Text="Search..."/>
 
                 <ListBox x:Name="itemListBox" Width="750" Height="150" Margin="10"
-         SelectionMode="Multiple" SelectionChanged="ItemListBox_SelectionChanged">
+         SelectionMode="Multiple">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
