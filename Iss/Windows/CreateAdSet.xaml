@@ -1,0 +1,62 @@
+﻿<Window x:Class="Iss.Windows.CreateAdSet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Iss.Windows"
+        mc:Ignorable="d"
+        Title="CreateAdSet" Height="450" Width="800">
+    <Grid Background="White">
+
+        <StackPanel Grid.ColumnSpan="3" >
+            <TextBlock Text="Create Ad Set" FontSize="20" Margin="0,0,0,0" FontWeight="Bold" Height="33"/>
+
+            <StackPanel Height="401" Width="792" RenderTransformOrigin="0.509,0.544">
+                <TextBlock Text="Select target Audience" FontSize="14" Margin="28,35,0,-20" FontWeight="Bold" Height="44"/>
+                <ComboBox x:Name="selectionComboBox" Width="750" Margin="10" RenderTransformOrigin="0.503,0.625">
+                    <ComboBoxItem Content="Elderly"/>
+                    <ComboBoxItem Content="Item 2"/>
+                    <ComboBoxItem Content="Item 3"/>
+                </ComboBox>
+
+                <TextBlock Text="Select Ads: " FontSize="14" Margin="20,35,0,-25" FontWeight="Bold" Height="44"/>
+                <TextBox x:Name="searchTextBox" Width="750" Margin="10" Text="Search..."/>
+
+                <ListBox x:Name="itemListBox" Width="750" Height="150" Margin="10"
+         SelectionMode="Multiple" SelectionChanged="ItemListBox_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding}" Margin="5"/>
+                                <TextBlock Text="+" Margin="5">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBoxItem>Ad 1</ListBoxItem>
+                    <ListBoxItem>Ad 2</ListBoxItem>
+                    <ListBoxItem>Ad 3</ListBoxItem>
+                    <ListBoxItem>Ad 4</ListBoxItem>
+                    <ListBoxItem>Ad 5</ListBoxItem>
+                    <ListBoxItem>Ad 6</ListBoxItem>
+                </ListBox>
+
+                <Button Name="createAdSetButton" Content="Create Ad Set" Width="250" Margin="0,10,0,0" Background="#800080" Foreground="White"/>
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>
