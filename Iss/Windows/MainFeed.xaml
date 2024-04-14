@@ -28,7 +28,7 @@
                         </Grid.RowDefinitions>
 
                         <!-- Close Button -->
-                        <Button Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,16,16,0" Click="CloseButtonClick" Height="19" Width="18" BorderThickness="1,1,1,1"/>
+                        <Button Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,16,16,0" Height="19" Width="18" BorderThickness="1,1,1,1"/>
 
                         <!-- Brand Name and Brief Description -->
                         <StackPanel Grid.Row="0">
@@ -38,7 +38,7 @@
 
                         <!-- Navigation Buttons -->
                         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Width="353">
-                            <Button Content="&lt;" Background="Transparent" Click="PreviousImageButtonClick" Width="26" Height="26" BorderBrush="Black" BorderThickness="1">
+                            <Button Content="&lt;" Background="Transparent"  Width="26" Height="26" BorderBrush="Black" BorderThickness="1">
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Grid>
@@ -49,7 +49,7 @@
                                 </Button.Template>
                             </Button>
                             <Image Source="Images/Ad.png" Width="301"/>
-                            <Button Content="&gt;" Background="Transparent" Click="NextImageButtonClick" Width="26" Height="26" BorderBrush="Black" BorderThickness="1">
+                            <Button Content="&gt;" Background="Transparent" Width="26" Height="26" BorderBrush="Black" BorderThickness="1">
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Grid>
