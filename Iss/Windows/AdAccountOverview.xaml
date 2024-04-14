@@ -7,25 +7,25 @@
         mc:Ignorable="d" Height="450" Width="800">
     <Grid Background="White">
         <StackPanel>
-            <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5">
+            <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" Click="HomeButton_Click">
             </Button>
             <TextBlock Text="Account Overview" FontSize="20" Margin="35,0,0,0" FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal" Margin="35,10,20,20">
                 <StackPanel>
                     <TextBlock Text="Company Name" FontWeight="Bold"/>
-                    <TextBlock Text="Secondary Text"/>
-                    <TextBlock Text="Domain of activity" FontWeight="Bold"/>
-                    <TextBlock Text="Secondary Text"/>
+                    <TextBlock Name ="companyName" Text="Secondary Text"/>
+                    <TextBlock  Text="Domain of activity" FontWeight="Bold"/>
+                    <TextBlock Name ="domainOfActivity" Text="Secondary Text"/>
                     <TextBlock Text="CIF" FontWeight="Bold"/>
-                    <TextBlock Text="Secondary Text"/>
+                    <TextBlock Name ="CIF" Text="Secondary Text"/>
                 </StackPanel>
                 <StackPanel Margin="200,0,0,0">
                     <TextBlock Text="Site URL" FontWeight="Bold"/>
-                    <TextBlock Text="Secondary Text"/>
+                    <TextBlock Name ="URL" Text="Secondary Text"/>
                     <TextBlock Text="Company address" FontWeight="Bold"/>
-                    <TextBlock Text="Secondary Text"/>
+                    <TextBlock Name ="address" Text="Secondary Text"/>
                     <TextBlock Text="Legal Institution" FontWeight="Bold"/>
-                    <TextBlock Text="Secondary Text"/>
+                    <TextBlock Name ="legalInstitution" Text="Secondary Text"/>
                 </StackPanel>
                 <StackPanel Margin="140,0,0,0">
                     <Button Content="+ Manage subscriptions" Width="160" Margin="5" Background="#800080" Foreground="White"/>

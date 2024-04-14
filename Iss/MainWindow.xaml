@@ -39,21 +39,22 @@
                 <Setter Property="Padding" Value="10"/>
             </Style>
         </Grid.Resources>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="513">
-            <TextBlock Text="Login" FontSize="30" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Center"/>
-            <TextBlock Text="Username" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
-            <TextBox Name="textUsername" Margin="5" Height="30"/>
-
-            <TextBlock Text="Password" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
-            <TextBox Name="textPassword" Margin="5" Height="30"/>
-
-            <Button x:Name="loginButton" Content="Login" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
-HorizontalAlignment="Center" VerticalAlignment="Center" 
- Style="{StaticResource RoundCornerButton}"/>
-            <TextBlock Text="Don't have an account?" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
-            <Button x:Name="signupButton" Content="Sign Up" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
-HorizontalAlignment="Center" VerticalAlignment="Center" 
- Style="{StaticResource RoundCornerButton}"/>
-        </StackPanel>
+        <ContentControl x:Name="contentContainer" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ContentControl.Content>
+                <!-- Your login UI -->
+                <StackPanel Width="513">
+                    <TextBlock Text="Login" FontSize="30" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Username" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
+                    <TextBox Name="textUsername" Margin="5" Height="30"/>
+                    <TextBlock Text="Password" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
+                    <TextBox Name="textPassword" Margin="5" Height="30"/>
+                    <Button x:Name="loginButton" Content="Login" Click="btnLogin_Click"
+                            Style="{StaticResource RoundCornerButton}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Text="Don't have an account?" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
+                    <Button x:Name="signupButton" Content="Sign Up"
+                            Style="{StaticResource RoundCornerButton}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ContentControl.Content>
+        </ContentControl>
     </Grid>
 </Window>

@@ -9,16 +9,15 @@ namespace Iss.Entity
     public class Ad
     {
         public string productName { get; set; }
-        public List<string> photos { get; set; }
-        public List<string> videos { get; set; }
+        public string photo { get; set; }
+       
         public string description { get; set; }
         public string websiteLink {  get; set; }
 
-        public Ad(string productName, List<string> photos, List<string> videos, string description, string websiteLink)
+        public Ad(string productName, string photo, string description, string websiteLink)
         {
             this.productName = productName;
-            this.photos = photos;
-            this.videos = videos;
+            this.photo = photo;
             this.description = description;
             this.websiteLink = websiteLink;
         }

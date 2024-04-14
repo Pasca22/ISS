@@ -8,6 +8,7 @@ namespace Iss.Entity
 {
     public class AdAccount
     {
+        public string id {  get; set; }
         public string nameOfCompany { get; set; }
         public string domainOfActivity { get; set; }
         public string siteUrl { get; set; }
@@ -24,8 +25,9 @@ namespace Iss.Entity
         List<Request> requests = new List<Request>();
         ISubscription? subscription;
 
-        public AdAccount(string nameOfCompany, string domainOfActivity, string siteUrl, string password, string taxIdentificationNumber, string headquartersLocation, string authorisingInstituion)
+        public AdAccount(string id, string nameOfCompany, string domainOfActivity, string siteUrl, string password, string taxIdentificationNumber, string headquartersLocation, string authorisingInstituion)
         {
+            this.id = id;
             this.nameOfCompany = nameOfCompany;
             this.domainOfActivity = domainOfActivity;
             this.siteUrl = siteUrl;
