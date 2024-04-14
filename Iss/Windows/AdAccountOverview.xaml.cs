@@ -3,6 +3,7 @@ using Iss.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,10 +23,24 @@ namespace Iss.Windows
     public partial class AdAccountOverview : UserControl
     {
         private AdAccountService adAccountService = new AdAccountService();
+        public List<Ad> ads { get; set; }
+
         public AdAccountOverview()
         {
             InitializeComponent();
             PopulateAccountDetails();
+            PopulateAds();
+        }
+
+        private void PopulateAds()
+        {
+            // Get ads for the current user
+            ads = adAccountService.getAdsForCurrentUser();
+            Ads.Items.Clear();
+            foreach (var ad in ads)
+            {
+                Ads.Items.Add(ad);
+            }
         }
 
         private void PopulateAccountDetails()

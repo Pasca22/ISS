@@ -1,5 +1,6 @@
 ﻿using Iss.Entity;
 using Iss.Service;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Iss.Windows
     public partial class CreateAd : UserControl
     {
         private AdService adService = new AdService();
+        private string selectedImagePath;
         public CreateAd()
         {
             InitializeComponent();
@@ -31,6 +33,14 @@ namespace Iss.Windows
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(textProductName.Text) ||
+            string.IsNullOrWhiteSpace(textDescription.Text) ||
+            string.IsNullOrWhiteSpace(textLink.Text) || string.IsNullOrEmpty(selectedImagePath))
+                {
+                    MessageBox.Show("Please fill in all fields.");
+                    return;
+                }
+
                 // Retrieve ad details from input fields
                 string productName = textProductName.Text;
                 string description = textDescription.Text;
@@ -40,7 +50,7 @@ namespace Iss.Windows
                 Ad ad = new Ad
                 (
                     productName,
-                    "hardcoded",
+                    selectedImagePath,
                     description,
                     link
                     // Add photo logic here if needed
@@ -51,6 +61,7 @@ namespace Iss.Windows
 
                 // Show success message or navigate to another page
                 MessageBox.Show("Ad created successfully!");
+                clearAll();
             }
             catch (Exception ex)
             {
@@ -69,6 +80,43 @@ namespace Iss.Windows
             {
                 mainWindow.contentContainer.Content = mainWindow.homePage;
             }
+        }
+
+        private void UploadPhotoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                selectedImagePath = openFileDialog.FileName;
+                string selectedImageTitle = System.IO.Path.GetFileName(selectedImagePath);
+                SelectedImageTitle.Text = selectedImageTitle;
+
+                // Show the "Clear Image" button
+                ClearImageButton.Visibility = Visibility.Visible;
+
+                
+            }
+        }
+
+        private void clearAll()
+        {
+            textProductName.Text = string.Empty;
+            textDescription.Text = string.Empty;
+            textLink.Text = string.Empty;
+            selectedImagePath = string.Empty;
+            SelectedImageTitle.Text = string.Empty;
+            ClearImageButton.Visibility = Visibility.Collapsed;
+        }
+
+        private void ClearImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Clear the selected image
+            //UploadedImage.Source = null;
+            selectedImagePath = "";
+            SelectedImageTitle.Text = string.Empty;
+            ClearImageButton.Visibility = Visibility.Collapsed;
         }
     }
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,8 @@ namespace Iss.Repository
     public class AdAccountRepository
     {
         DatabaseConnection databaseConnection = new DatabaseConnection();
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        DataSet dataSet = new DataSet();
 
         public AdAccount GetAdAccount(string nameOfCompany, string password)
         {
@@ -54,6 +57,26 @@ namespace Iss.Repository
             command.Parameters.AddWithValue("@authorizingInstitution", adAccount.authorisingInstituion);
             command.ExecuteNonQuery();
             databaseConnection.CloseConnection();
+        }
+
+        public List<Ad> GetAdsForCurrentUser()
+        {
+            List<Ad> ads = new List<Ad>();
+
+            databaseConnection.OpenConnection();
+            string query = "SELECT * FROM Ad WHERE AdAccountId = @id";
+            SqlCommand command = new SqlCommand(@query, databaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@id", User.User.getInstance().Id);
+            adapter.SelectCommand = command;
+            dataSet.Clear();
+            adapter.Fill(dataSet, "Ad");
+
+            foreach (DataRow row in dataSet.Tables["Ad"].Rows)
+            {
+                Ad ad = new Ad(row["ID"].ToString(), row["Name"].ToString(), row["Photo"].ToString(), row["Description"].ToString(), row["Url"].ToString());
+                ads.Add(ad);
+            }
+            return ads;
         }
     }
 }

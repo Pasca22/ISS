@@ -39,5 +39,9 @@ namespace Iss.Service
         {
             return adAccountRepository.GetAdAccount(User.User.getInstance().Name, User.User.getInstance().Password);
         }
+
+        public List<Ad> getAdsForCurrentUser() {
+            return adAccountRepository.GetAdsForCurrentUser();
+        }
     }
 }
