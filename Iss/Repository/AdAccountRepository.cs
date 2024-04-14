@@ -39,5 +39,21 @@ namespace Iss.Repository
             databaseConnection.CloseConnection();
             return adAccount;
         }   
+
+        public void AddAdAccount(AdAccount adAccount)
+        {
+            databaseConnection.OpenConnection();
+            string query = "INSERT INTO AdAccount (NameOfCompany, DomainOfActivity, WebSiteUrl, Password, TaxIdentificationNumber, HeadquartersLocation, AuthorizingInstitution) VALUES (@nameOfCompany, @domainOfActivity, @webSiteUrl, @password, @taxIdentificationNumber, @headquartersLocation, @authorizingInstitution)";
+            SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@nameOfCompany", adAccount.nameOfCompany);
+            command.Parameters.AddWithValue("@domainOfActivity", adAccount.domainOfActivity);
+            command.Parameters.AddWithValue("@webSiteUrl", adAccount.siteUrl);
+            command.Parameters.AddWithValue("@password", adAccount.password);
+            command.Parameters.AddWithValue("@taxIdentificationNumber", adAccount.taxIdentificationNumber);
+            command.Parameters.AddWithValue("@headquartersLocation", adAccount.headquartersLocation);
+            command.Parameters.AddWithValue("@authorizingInstitution", adAccount.authorisingInstituion);
+            command.ExecuteNonQuery();
+            databaseConnection.CloseConnection();
+        }
     }
 }
