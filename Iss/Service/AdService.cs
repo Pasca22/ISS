@@ -21,5 +21,10 @@ namespace Iss.Service
         {
             this.adRepository.addAd(ad);
         }
+
+        public List<Ad> getAdsThatAreNotInAdSet()
+        {
+            return this.adRepository.getAdsThatAreNotInAdSet();
+        }
     }
 }

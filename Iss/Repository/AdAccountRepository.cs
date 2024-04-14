@@ -15,7 +15,6 @@ namespace Iss.Repository
     {
         DatabaseConnection databaseConnection = new DatabaseConnection();
         SqlDataAdapter adapter = new SqlDataAdapter();
-        DataSet dataSet = new DataSet();
 
         public AdAccount GetAdAccount(string nameOfCompany, string password)
         {
@@ -62,7 +61,7 @@ namespace Iss.Repository
         public List<Ad> GetAdsForCurrentUser()
         {
             List<Ad> ads = new List<Ad>();
-
+            DataSet dataSet = new DataSet();
             databaseConnection.OpenConnection();
             string query = "SELECT * FROM Ad WHERE AdAccountId = @id";
             SqlCommand command = new SqlCommand(@query, databaseConnection.sqlConnection);
@@ -77,6 +76,30 @@ namespace Iss.Repository
                 ads.Add(ad);
             }
             return ads;
+        }
+
+        public List<AdSet> getAdSetsForCurrentUser()
+        {
+            databaseConnection.OpenConnection();
+            DataSet dataSet = new DataSet();
+            string query = "SELECT * FROM AdSet WHERE AdAccountID = @adAccountId";
+            SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@adAccountId", User.User.getInstance().Id);
+            adapter.SelectCommand = command;
+            adapter.SelectCommand.ExecuteNonQuery();
+            dataSet.Clear();
+            adapter.Fill(dataSet);
+            List<AdSet> adSets = new List<AdSet>();
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                string id = dataRow["ID"].ToString();
+                string name = dataRow["Name"].ToString();
+                string targetAudience = dataRow["TargetAudience"].ToString();
+                AdSet adSet = new AdSet(id, name, targetAudience);
+                adSets.Add(adSet);
+            }
+            databaseConnection.CloseConnection();
+            return adSets;
         }
     }
 }

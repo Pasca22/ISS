@@ -24,12 +24,14 @@ namespace Iss.Windows
     {
         private AdAccountService adAccountService = new AdAccountService();
         public List<Ad> ads { get; set; }
+        public List<AdSet> adSets { get; set; }
 
         public AdAccountOverview()
         {
             InitializeComponent();
             PopulateAccountDetails();
             PopulateAds();
+            PopulateAdSets();
         }
 
         private void PopulateAds()
@@ -40,6 +42,16 @@ namespace Iss.Windows
             foreach (var ad in ads)
             {
                 Ads.Items.Add(ad);
+            }
+        }
+
+        private void PopulateAdSets()
+        {
+            adSets = adAccountService.getAdSetsForCurrentUser();
+            AdSetss.Items.Clear();
+            foreach (var adSet in adSets)
+            {
+                AdSetss.Items.Add(adSet);
             }
         }
 
@@ -57,6 +69,18 @@ namespace Iss.Windows
                 URL.Text = userAccount.siteUrl;
                 address.Text = userAccount.headquartersLocation;
                 legalInstitution.Text = userAccount.authorisingInstituion;
+            }
+        }
+
+        private void addAdSetButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of the create ad set page
+            CreateAdSet createAdSet = new CreateAdSet();
+            // Replace the current user control with the create ad set page
+            Window window = Window.GetWindow(this);
+            if (window != null && window is MainWindow mainWindow)
+            {
+                mainWindow.contentContainer.Content = createAdSet;
             }
         }
 
