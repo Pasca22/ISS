@@ -43,5 +43,10 @@ namespace Iss.Service
         public List<Ad> getAdsForCurrentUser() {
             return adAccountRepository.GetAdsForCurrentUser();
         }
+
+        public List<AdSet> getAdSetsForCurrentUser()
+        {
+            return adAccountRepository.getAdSetsForCurrentUser();
+        }
     }
 }
