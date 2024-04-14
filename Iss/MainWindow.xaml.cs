@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Iss.Service;
 using Iss.Windows;
 
 namespace Iss
@@ -21,11 +22,31 @@ namespace Iss
     /// </summary>
     public partial class MainWindow : Window
     {
+        internal HomePage homePage;
+        AdAccountService adAccountService = new AdAccountService();
         public MainWindow()
         {
             InitializeComponent();
             InfluencerStart influencerStart = new InfluencerStart();
             influencerStart.Show();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = textUsername.Text;
+            string password = textPassword.Text;
+            try
+            {
+                adAccountService.login(username, password);
+
+                // Open the new window containing the HomePage user control
+                this.homePage = new HomePage();
+                contentContainer.Content = homePage;
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Invalid username or password. Please try again.");
+            }
         }
     }
 }

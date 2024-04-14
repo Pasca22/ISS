@@ -33,7 +33,7 @@ namespace Iss.Repository
             if (dataSet.Tables[0].Rows.Count > 0)
             {
                 DataRow dataRow = dataSet.Tables[0].Rows[0];
-                adAccount = new AdAccount(dataRow["NameOfCompany"].ToString(), dataRow["DomainOfActivity"].ToString(), dataRow["WebSiteUrl"].ToString(), dataRow["Password"].ToString(), dataRow["TaxIdentificationNumber"].ToString(), dataRow["HeadquartersLocation"].ToString(), dataRow["AuthorizingInstitution"].ToString());
+                adAccount = new AdAccount(dataRow["ID"].ToString(),dataRow["NameOfCompany"].ToString(), dataRow["DomainOfActivity"].ToString(), dataRow["WebSiteUrl"].ToString(), dataRow["Password"].ToString(), dataRow["TaxIdentificationNumber"].ToString(), dataRow["HeadquartersLocation"].ToString(), dataRow["AuthorizingInstitution"].ToString());
             }
 
             databaseConnection.CloseConnection();
