@@ -24,5 +24,25 @@ namespace Iss.Windows
         {
             InitializeComponent();
         }
+
+        private void SharesTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TotalImpressionsTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TotalLikesTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ClickThroughRateTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
