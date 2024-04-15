@@ -23,6 +23,7 @@ namespace Iss
     public partial class MainWindow : Window
     {
         internal HomePage homePage;
+        internal CreateAdAccount createAdAccount;
         AdAccountService adAccountService = new AdAccountService();
         public MainWindow()
         {
@@ -51,7 +52,7 @@ namespace Iss
 
         private void signupButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateAdAccount createAdAccount = new CreateAdAccount();
+            this.createAdAccount = new CreateAdAccount();
             contentContainer.Content = createAdAccount;
         }
     }
