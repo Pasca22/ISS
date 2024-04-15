@@ -8,24 +8,24 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <StackPanel Orientation="Vertical">
-            <TextBox Name="textTitle" Text="Collaboration Title" FontWeight="DemiBold" FontSize="25" TextAlignment="Center" ></TextBox>
-            <TextBlock x:Name="textOverview" Text="Collaboration Overview" FontWeight="DemiBold" FontSize="18" TextAlignment="Center" Margin="0 20 0 0"/>
+            <TextBox Name="collaborationTitle" Text="Collaboration Title" FontWeight="DemiBold" FontSize="25" TextAlignment="Center" ></TextBox>
+            <TextBlock x:Name="overviewlabel" Text="Collaboration Overview" FontWeight="DemiBold" FontSize="18" TextAlignment="Center" Margin="0 20 0 0"/>
             <Border>
-                <TextBox Name="overviewContent" FontSize="14" TextAlignment="Center" VerticalAlignment="Top"  Height="80"/>
+                <TextBox Name="collabOverview" FontSize="14" TextAlignment="Center" VerticalAlignment="Top"  Height="80"/>
             </Border>
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical" Margin="30 30 0 0">
-                    <TextBlock Name="script" Text="Script" FontWeight="DemiBold" FontSize="15" TextAlignment="Center" VerticalAlignment="Top" Height="25"/>
+                    <TextBlock Name="contentRequirementslabel" Text="Content Requirements" FontWeight="DemiBold" FontSize="15" TextAlignment="Center" VerticalAlignment="Top" Height="25"/>
                     <Border>
-                        <TextBox Name="scriptContent" FontSize="14" TextAlignment="Center" VerticalAlignment="Top" Height="150"  Width="280"/>
+                        <TextBox Name="contentRequirements" FontSize="14" TextAlignment="Center" VerticalAlignment="Top" Height="150"  Width="280"/>
                     </Border>
                     <Border CornerRadius="30" >
-                        <Button Name="makeRequestButton" Content="MAKE REQUEST" Background="Purple" Foreground="White" Margin="50 20 0 0" Height="28"></Button>
+                        <Button Name="makeRequestButton" Content="MAKE REQUEST" Click="MakeRequestButton_Click" Background="Purple" Foreground="White" Margin="50 20 0 0" Height="28"></Button>
                     </Border>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="220 30 10 50">
-                    <TextBlock Name="compensation" Text="Additional Compensation:" FontWeight="DemiBold" FontSize="15" TextAlignment="Center" VerticalAlignment="Top" ></TextBlock>
-                    <TextBox Name="compensationContent"   FontSize="15" TextAlignment="Center" VerticalAlignment="Center" Height="20" Width="250"></TextBox>
+                    <TextBlock Name="compensationLabel" Text="Compensation:" FontWeight="DemiBold" FontSize="15" TextAlignment="Center" VerticalAlignment="Top" ></TextBlock>
+                    <TextBox Name="compensation"   FontSize="15" TextAlignment="Center" VerticalAlignment="Center" Height="20" Width="250"></TextBox>
                     <TextBlock Name="timeline" Text="Timeline:" FontWeight="DemiBold" FontSize="15" TextAlignment="Center" VerticalAlignment="Top" Height="20" Margin="0 20 0 0"/>
                     <Calendar Name="calendar" SelectionMode="SingleRange" Height="187" Width="181" RenderTransformOrigin="0.5,0.5">
                         <Calendar.RenderTransform>
