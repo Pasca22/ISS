@@ -182,5 +182,21 @@ namespace Iss.Windows
                 mainWindow.contentContainer.Content = createCampaign;
             }
         }
+
+        private void Ads_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Check if an item is selected
+            if (Ads.SelectedItem != null)
+            {
+                // Assuming you have a function to navigate to the new screen, 
+                // pass the selected ad to it
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.contentContainer.Content = new AdDetails((Ad)Ads.SelectedItem);
+                }
+
+            }
+        }
     }
 }
