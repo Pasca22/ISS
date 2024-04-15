@@ -9,6 +9,38 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid Margin="20" Background="White">
+        <Grid.Resources>
+
+            <Style x:Key="PurpleTextBlock" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Foreground" Value="Purple"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+            </Style>
+
+
+            <Style x:Key="RoundCornerTextBox" TargetType="{x:Type Control}">
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="BorderBrush" Value="Purple"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="#F0F0F0"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+
+            <Style x:Key="RoundCornerButton" TargetType="Button">
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="BorderBrush" Value="Purple"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="Purple"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+        </Grid.Resources>
         <TextBlock
             Width="760"
             Margin="0,0,0,380"
@@ -20,72 +52,79 @@
             Text="Create Account"
             TextAlignment="Center" />
         <StackPanel>
+            <TextBlock Margin="270,40,0,0" Text="Company name" FontSize="13" Style="{StaticResource PurpleTextBlock}"/>
             <TextBox
                 Name="CompanyName"
                 Width="200"
                 Height="25"
-                Margin="0,70,0,0"
+                Margin="0,0,0,0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="Company Name"  />
+            />
+            <TextBlock Margin="270,4,0,0" Text="Domain of Activity" FontSize="13" Style="{StaticResource PurpleTextBlock}"/>
             <ComboBox
                 Name="DomainOfActivityComboBox"
                 Width="200"
                 Height="25"
-                Margin="0,14,0,0"
+                Margin="0,0,0,0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
                 SelectedIndex="0">
             </ComboBox>
+            <TextBlock Margin="270,4,0,0" Text="Password" FontSize="13" Style="{StaticResource PurpleTextBlock}"/>
             <PasswordBox
                 Name="Password"
                 Width="200"
                 Height="25"
-                Margin="0,14,0,0"
+                Margin="0,0,0,0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Password="Password" />
+             />
+            <TextBlock Margin="270,4,0,0" Text="Site URL" FontSize="13" Style="{StaticResource PurpleTextBlock}"/>
             <TextBox
                 Name="SiteUrl"
                 Width="200"
                 Height="25"
-                Margin="0,14,0,0"
+                Margin="0,0,0,0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="Site Url" />
+             />
+            <TextBlock Margin="270,4,0,0" Text="Headquarters" FontSize="13" Style="{StaticResource PurpleTextBlock}"/>
             <TextBox
                 Name="Headquarters"
                 Width="200"
                 Height="25"
-                Margin="0,14,0,0"
+                Margin="0,0,0,0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="Headquarters"/>
+            />
+            <TextBlock Margin="270,4,0,0" Text="CIF" FontSize="13" Style="{StaticResource PurpleTextBlock}"/>
             <TextBox
                 Name="CIF"
                 Width="200"
                 Height="25"
-                Margin="0,14,0,0"
+                Margin="0,0,0,0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="CIF" />
+                />
+            <TextBlock Margin="270,4,0,0" Text="Authorising Institution" FontSize="13" Style="{StaticResource PurpleTextBlock}"/>
             <ComboBox
                 Name="AuthorisingInstitutionComboBox"
                 Width="200"
                 Height="25"
-                Margin="0,14,0,0"
+                Margin="0,0,0,0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
@@ -96,7 +135,7 @@
                 Name="CreateAccountBtn"
                 Width="131"
                 Height="46"
-                Margin="0,10,0,0"
+                Margin="0,5,0,0"
                 Background="#800080"
                 Content="Sign Up"
                 FontWeight="Bold"

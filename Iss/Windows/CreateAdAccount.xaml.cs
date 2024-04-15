@@ -30,10 +30,11 @@ namespace Iss.Windows
             //TODO! implement the creation of the account
             AdAccount account = new AdAccount(nameOfCompany, domainOfActivity, siteUrl, password, taxIdentificationNumber, headquartersLocation, authorisingInstitution);
             adAccountService.addAdAccount(account);
+            adAccountService.login(nameOfCompany, password);
             //make the main window appear after button click
             MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
-
-            this.Content = new HomePage();
+            mainWindow.homePage = new HomePage();
+            this.Content = mainWindow.homePage;
 
 
         }
