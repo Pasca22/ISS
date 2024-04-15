@@ -13,7 +13,6 @@ namespace Iss.Repository
     {
         DatabaseConnection DatabaseConnection = new DatabaseConnection();
         SqlDataAdapter adapter = new SqlDataAdapter();
-        DataSet dataSet = new DataSet();
 
         public void addAdSet(AdSet adSet)
         {
@@ -30,6 +29,7 @@ namespace Iss.Repository
 
         public AdSet getAdSetByName(AdSet adSet)
         {
+            DataSet dataSet = new DataSet();
             DatabaseConnection.OpenConnection();
             string query = "SELECT * FROM AdSet WHERE Name = @name";
             SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
@@ -59,6 +59,28 @@ namespace Iss.Repository
             adapter.UpdateCommand = command;
             adapter.UpdateCommand.ExecuteNonQuery();
             DatabaseConnection.CloseConnection();
+        }
+
+        public List<AdSet> getAdSetsThatAreNotInCampaign()
+        {
+            List<AdSet> adSets = new List<AdSet>();
+            DataSet dataSet = new DataSet();
+            DatabaseConnection.OpenConnection();
+            string query = "SELECT * FROM AdSet WHERE CampaignID IS NULL";
+            SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
+            adapter.SelectCommand = command;
+            adapter.SelectCommand.ExecuteNonQuery();
+            adapter.Fill(dataSet);
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                string id = dataRow["ID"].ToString();
+                string name = dataRow["Name"].ToString();
+                string targetAudience = dataRow["TargetAudience"].ToString();
+                AdSet adSet = new AdSet(id, name, targetAudience);
+                adSets.Add(adSet);
+            }
+            DatabaseConnection.CloseConnection();
+            return adSets;
         }
     }
 }

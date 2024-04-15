@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Iss.Entity;
+using Iss.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,28 @@ namespace Iss.Windows
     /// </summary>
     public partial class CreateCampaign : UserControl
     {
+        AdSetService AdSetService = new AdSetService();
+        CampaignService CampaignService = new CampaignService();
         public CreateCampaign()
         {
             InitializeComponent();
+            itemListBox.SetValue(ItemsControl.ItemsSourceProperty, AdSetService.getAdSetsThatAreNotInCampaign());
+        }
+
+        private void createCampaignButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<AdSet> adSets = new List<AdSet>();
+            foreach (AdSet adSet in itemListBox.SelectedItems)
+            {
+                adSets.Add(adSet);
+            }
+            Campaign campaign = new Campaign(nameTextBox.Text, startDatePicker.SelectedDate.Value, int.Parse(durationTextBox.Text), adSets);
+            CampaignService.addCampaign(campaign);
+
+            MessageBox.Show("Camapign created with " + adSets.Count + " ad sets", "Camapign Created", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            AdAccountOverview adAccountOverview = new AdAccountOverview();
+            this.Content = adAccountOverview;
         }
     }
 }

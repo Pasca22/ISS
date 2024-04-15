@@ -54,12 +54,12 @@
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Margin="10,0,0,0">
                     <StackPanel Orientation="Horizontal" Margin="0,5,1,1" Background="White" HorizontalAlignment="Center" >
-                        <TextBox Name="CampaignName" Width="150" Height="20" Margin="0,0,0,0" Text="Campaign name" Opacity="0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <TextBox Name="searchCampaignBox" Width="150" Height="20" Margin="0,0,0,0" Text="Campaign name" Opacity="0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         <Button Name="searchCampaign" Content="Search" Width="50" Height="20" Margin="15,0,0,0" Foreground="Black" Background="{x:Null}" BorderBrush="Purple" Click="searchCampaign_Click"/>
                     </StackPanel>
                     <TextBlock Text="Campaigns" Width="250" HorizontalAlignment="Left"/>
                     <ListBox Name="Campaigns"  Width="250" Height="150" Background="White" BorderBrush="Purple" BorderThickness="1" HorizontalAlignment="Left"/>
-                    <Button Name="AddCampaign" Content="Add Campaign" Width="250" Margin="0,10,0,0" Background="#800080" Foreground="White"/>
+                    <Button Name="AddCampaign" Content="Add Campaign" Width="250" Margin="0,10,0,0" Background="#800080" Foreground="White" Click="AddCampaign_Click"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

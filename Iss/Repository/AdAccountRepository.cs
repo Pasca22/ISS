@@ -101,5 +101,30 @@ namespace Iss.Repository
             databaseConnection.CloseConnection();
             return adSets;
         }
+
+        public List<Campaign> getCampaignsForCurrentUser()
+        {
+            databaseConnection.OpenConnection();
+            DataSet dataSet = new DataSet();
+            string query = "SELECT * FROM Campaign WHERE AdAccountID = @adAccountId";
+            SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@adAccountId", User.User.getInstance().Id);
+            adapter.SelectCommand = command;
+            adapter.SelectCommand.ExecuteNonQuery();
+            dataSet.Clear();
+            adapter.Fill(dataSet);
+            List<Campaign> campaigns = new List<Campaign>();
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                string id = dataRow["ID"].ToString();
+                string name = dataRow["Name"].ToString();
+                DateTime startDate = Convert.ToDateTime(dataRow["StartDate"]);
+                int duration = Convert.ToInt32(dataRow["Duration"]);
+                Campaign campaign = new Campaign(id, name, startDate, duration);
+                campaigns.Add(campaign);
+            }
+            databaseConnection.CloseConnection();
+            return campaigns;   
+        }
     }
 }

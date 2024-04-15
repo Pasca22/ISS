@@ -33,6 +33,7 @@ namespace Iss.Windows
             PopulateAccountDetails();
             PopulateAds();
             PopulateAdSets();
+            PopulateCampaigns();
         }
 
         private void PopulateAds()
@@ -53,6 +54,16 @@ namespace Iss.Windows
             foreach (var adSet in adSets)
             {
                 AdSetss.Items.Add(adSet);
+            }
+        }
+
+        private void PopulateCampaigns()
+        {
+            campaigns = adAccountService.getCampaignsForCurrentUser();
+            Campaigns.Items.Clear();
+            foreach (var campaign in campaigns)
+            {
+                Campaigns.Items.Add(campaign);
             }
         }
 
@@ -152,8 +163,25 @@ namespace Iss.Windows
 
         private void searchCampaign_Click(object sender, RoutedEventArgs e)
         {
-            
+            campaigns = adAccountService.getCampaignsForCurrentUser();
+            Campaigns.Items.Clear();
+            foreach (var campaign in campaigns)
+            {
+                if (campaign.campaignName.Contains(searchCampaignBox.Text))
+                {
+                    Campaigns.Items.Add(campaign);
+                }
+            }
+        }
 
+        private void AddCampaign_Click(object sender, RoutedEventArgs e)
+        {
+            CreateCampaign createCampaign = new CreateCampaign();
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = createCampaign;
+            }
         }
     }
 }
