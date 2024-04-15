@@ -8,7 +8,13 @@ namespace Iss
 {
     public static class Constants
     {
-        public static readonly List<string> domainOfActivities = ["Food", "Clothing", "Electronics"];
-        public static readonly List<string> authorisingInstitutions = ["ANAF", "ITM", "ISU"];
+        public static readonly List<string> DOMAIN_OF_ACTIVITIES = ["Food", "Clothing", "Electronics"];
+        public static readonly List<string> AUTHORIZING_INSTITUTIONS = ["ANAF", "ITM", "ISU"];
+        public static readonly Dictionary<string, int> NUMBER_OF_CAMPAIGNS_FOR_SUBSCRIPTION = new Dictionary<string, int>
+        {
+            { "Basic", 2 },
+            { "Silver", 3 },
+            { "Gold", 5 }
+        };
     }
 }

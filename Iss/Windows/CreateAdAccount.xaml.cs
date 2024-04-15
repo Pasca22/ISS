@@ -13,8 +13,8 @@ namespace Iss.Windows
         {
             InitializeComponent();
             // Set the domain of activities and authorising institutions
-            DomainOfActivityComboBox.ItemsSource = Constants.domainOfActivities;
-            AuthorisingInstitutionComboBox.ItemsSource = Constants.authorisingInstitutions;
+            DomainOfActivityComboBox.ItemsSource = Constants.DOMAIN_OF_ACTIVITIES;
+            AuthorisingInstitutionComboBox.ItemsSource = Constants.AUTHORIZING_INSTITUTIONS;
         }
 
 
