@@ -41,5 +41,10 @@ namespace Iss.Service
         {
             this.adRepository.deleteAd(ad);
         }
+
+        public List<Ad> GetAdsFromAdSet(string id)
+        {
+            return this.adRepository.getAdsForAdSet(id);
+        }
     }
 }
