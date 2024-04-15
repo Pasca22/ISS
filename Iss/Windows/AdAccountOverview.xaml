@@ -28,7 +28,7 @@
                     <TextBlock Name ="legalInstitution" Text="Secondary Text"/>
                 </StackPanel>
                 <StackPanel Margin="140,0,0,0">
-                    <Button Content="+ Request a collaboration" Width="160" Margin="5" Background="#800080" Foreground="White"/>
+                    <Button Content="+ Request a collaboration" Width="160" Margin="5" Background="#800080" Foreground="White" Click="RequestButton_Click"/>
                     <Button Content="+ See available influnencers" Width="160" Margin="5" Background="#800080" Foreground="White"/>
                     <Button Content="+ Buy subscriptions and OTP" Width="160" Margin="5" Background="#800080" Foreground="White" Click="Button_Click"/>
                 </StackPanel>

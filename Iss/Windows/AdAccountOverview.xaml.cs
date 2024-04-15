@@ -118,7 +118,7 @@ namespace Iss.Windows
             }
 
         }
-
+        
         private void AddAd_Click(object sender, RoutedEventArgs e)
         {
             CreateAd createAd = new CreateAd();
@@ -196,6 +196,16 @@ namespace Iss.Windows
                     mainWindow.contentContainer.Content = new AdDetails((Ad)Ads.SelectedItem);
                 }
 
+            }
+        }
+
+        private void RequestButton_Click(object sender, RoutedEventArgs e)
+        {
+            MakeRequest makeRequest = new MakeRequest();
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = makeRequest;
             }
         }
     }
