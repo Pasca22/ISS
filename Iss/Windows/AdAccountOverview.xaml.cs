@@ -107,5 +107,15 @@ namespace Iss.Windows
             }
 
         }
+
+        private void AddAd_Click(object sender, RoutedEventArgs e)
+        {
+            CreateAd createAd = new CreateAd();
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = createAd;
+            }
+        }
     }
 }
