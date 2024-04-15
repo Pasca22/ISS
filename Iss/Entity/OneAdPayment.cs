@@ -11,5 +11,14 @@ namespace Iss.Entity
         public int paymentId { get; set; } = paymentId;
         public int reach { get; set; } = reach;
         public decimal price { get; set; } = price;
+        public AdAccount account;
+
+        public int getNextID()
+        {
+            int size = account.GetPayments().Count;
+            return size + 1;
+
+
+        }
     }
 }

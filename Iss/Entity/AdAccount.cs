@@ -36,5 +36,22 @@ namespace Iss.Entity
             this.headquartersLocation = headquartersLocation;
             this.authorisingInstituion = authorisingInstituion;
         }
+
+        public AdAccount(string nameOfCompany, string domainOfActivity, string siteUrl, string password, string taxIdentificationNumber, string headquartersLocation, string authorisingInstituion)
+        {
+            
+            this.nameOfCompany = nameOfCompany;
+            this.domainOfActivity = domainOfActivity;
+            this.siteUrl = siteUrl;
+            this.password = password;
+            this.taxIdentificationNumber = taxIdentificationNumber;
+            this.headquartersLocation = headquartersLocation;
+            this.authorisingInstituion = authorisingInstituion;
+        }
+
+        public List<IOneTimePayment> GetPayments()
+        {
+            return oneTimePayments;
+        }
     }
 }

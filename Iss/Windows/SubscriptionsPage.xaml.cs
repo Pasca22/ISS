@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Iss.Entity;
+using Iss.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +21,17 @@ namespace Iss.Windows
     /// </summary>
     public partial class SubscriptionsPage : UserControl
     {
+        AdAccountService adAccountService = new AdAccountService();
         public SubscriptionsPage()
         {
             InitializeComponent();
         }
 
-        
+        private void oneAdButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+
+        }
     }
 }
