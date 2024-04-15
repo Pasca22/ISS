@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="Iss.Windows.AdDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Iss.Windows"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.Resources>
+
+            <Style x:Key="PurpleTextBlock" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Foreground" Value="Purple"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+            </Style>
+
+
+            <Style x:Key="RoundCornerTextBox" TargetType="{x:Type Control}">
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="BorderBrush" Value="Purple"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="#F0F0F0"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+
+            <Style x:Key="RoundCornerButton" TargetType="Button">
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="BorderBrush" Value="Purple"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="Purple"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+        </Grid.Resources>
+        <!-- Step 1: Product Name -->
+        <StackPanel>
+            <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" >
+            </Button>
+
+            <TextBlock Text="Ad Details" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10" Foreground="Purple"/>
+            <StackPanel Grid.Column="0" Grid.Row="1" Margin="20">
+                <TextBlock Text="Product Name" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
+                <TextBox Name="textProductName" Margin="5" Height="30"/>
+
+                <TextBlock Text="Description" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
+                <TextBox Name="textDescription" Margin="5" Height="30"/>
+
+                <TextBlock Text="Link" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
+                <TextBox Name="textLink" Margin="5" Height="30"/>
+
+                <StackPanel Orientation="Horizontal" >
+                    <Button Click="UploadPhotoButton_Click" Name="uploadPhotoButton"  Content="Upload Photo" Margin="0,10,20,0"/>
+                    <TextBlock x:Name="SelectedImageTitle" Margin="0,10,0,0" VerticalAlignment="Center"/>
+                    <Button Click="ClearImageButton_Click" x:Name="ClearImageButton" Content="Clear Image" Margin="10,10,0,0"  Visibility="Collapsed"/>
+                </StackPanel>
+
+
+
+            </StackPanel>
+
+            <!-- Submit Button -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="UpdateAdButton" Content="Update Ad" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
+    HorizontalAlignment="Center" VerticalAlignment="Center" Click="updateAdBtn_Click" 
+     Style="{StaticResource RoundCornerButton}"/>
+                <Button x:Name="DeleteAdButton" Content="Delete Ad" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
+HorizontalAlignment="Center" VerticalAlignment="Center" Click="deleteAdBtn_Click" 
+ Style="{StaticResource RoundCornerButton}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+    
+</UserControl>

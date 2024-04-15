@@ -26,5 +26,20 @@ namespace Iss.Service
         {
             return this.adRepository.getAdsThatAreNotInAdSet();
         }
+
+        public void updateAd(Ad ad)
+        {
+            this.adRepository.updateAd(ad);
+        }
+
+        public Ad getAdByName(string adName)
+        {
+            return this.adRepository.getAdByName(adName);   
+        }
+
+        public void deleteAd(Ad ad)
+        {
+            this.adRepository.deleteAd(ad);
+        }
     }
 }
