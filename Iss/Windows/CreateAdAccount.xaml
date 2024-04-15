@@ -29,8 +29,7 @@
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="Company Name"
-                TextChanged="CompanyName_TextChanged" />
+                Text="Company Name" />
             <ComboBox
                 Name="DomainOfActivityComboBox"
                 Width="200"
@@ -40,16 +39,9 @@
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                SelectedIndex="0"
-                SelectionChanged="DomainOfActivityComboBox_SelectionChanged">
-
-                <ComboBoxItem IsEnabled="False">Domain of Activity</ComboBoxItem>
-
-                <ComboBoxItem>Option 1</ComboBoxItem>
-                <ComboBoxItem>Option 2</ComboBoxItem>
-                <ComboBoxItem>Option 3</ComboBoxItem>
+                SelectedIndex="0">
             </ComboBox>
-            <TextBox
+            <PasswordBox
                 Name="Password"
                 Width="200"
                 Height="25"
@@ -58,8 +50,7 @@
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="Password"
-                TextChanged="CompanyName_TextChanged" />
+                Password="Password" />
             <TextBox
                 Name="SiteUrl"
                 Width="200"
@@ -69,8 +60,7 @@
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="Site Url"
-                TextChanged="CompanyName_TextChanged" />
+                Text="Site Url" />
             <TextBox
                 Name="Headquarters"
                 Width="200"
@@ -80,8 +70,7 @@
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="Headquarters"
-                TextChanged="CompanyName_TextChanged" />
+                Text="Headquarters"/>
             <TextBox
                 Name="CIF"
                 Width="200"
@@ -91,8 +80,7 @@
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="CIF"
-                TextChanged="CompanyName_TextChanged" />
+                Text="CIF" />
             <ComboBox
                 Name="AuthorisingInstitutionComboBox"
                 Width="200"
@@ -102,24 +90,18 @@
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                SelectedIndex="0"
-                SelectionChanged="AuthorisingInstitutionComboBox_SelectionChanged">
-
-                <ComboBoxItem IsEnabled="False">Select an Authorising Institution</ComboBoxItem>
-
-                <ComboBoxItem>Option 1</ComboBoxItem>
-                <ComboBoxItem>Option 2</ComboBoxItem>
-                <ComboBoxItem>Option 3</ComboBoxItem>
+                SelectedIndex="0">
             </ComboBox>
             <Button
-                Name="AddCampaign"
+                Name="CreateAccountBtn"
                 Width="131"
                 Height="46"
                 Margin="0,10,0,0"
                 Background="#800080"
                 Content="Sign Up"
                 FontWeight="Bold"
-                Foreground="White" />
+                Foreground="White" 
+                Click="CreateAccountBtn_Click"/>
 
 
         </StackPanel>
