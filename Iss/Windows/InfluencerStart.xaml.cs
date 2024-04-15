@@ -24,10 +24,15 @@ namespace Iss.Windows
             InitializeComponent();
         }
 
-     /*   private void GoToRequestsButton_Click(object sender, RoutedEventArgs e)
+        private void GoToRequestsButton_Click(object sender, RoutedEventArgs e)
         {
             ListOfRequests listOfRequests = new ListOfRequests();
+            InfluencerStart mainWindow = Window.GetWindow(this) as InfluencerStart;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = listOfRequests;
+            }
 
-        }*/
+        }
     }
 }
