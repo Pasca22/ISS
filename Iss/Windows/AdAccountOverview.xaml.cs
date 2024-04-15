@@ -25,6 +25,7 @@ namespace Iss.Windows
         private AdAccountService adAccountService = new AdAccountService();
         public List<Ad> ads { get; set; }
         public List<AdSet> adSets { get; set; }
+        public List<Campaign> campaigns { get; set; }
 
         public AdAccountOverview()
         {
@@ -116,6 +117,43 @@ namespace Iss.Windows
             {
                 mainWindow.contentContainer.Content = createAd;
             }
+        }
+
+        private void searchAd_Click(object sender, RoutedEventArgs e)
+        {
+            ads = adAccountService.getAdsForCurrentUser();
+            //filter ads by the text box
+            Ads.Items.Clear();
+            foreach (var ad in ads)
+            {
+                if (ad.productName.Contains(searchAdBox.Text))
+                {
+                    Ads.Items.Add(ad);
+                }
+            }
+
+        }
+
+
+        private void searchAdSet_Click(object sender, RoutedEventArgs e)
+        {
+            adSets = adAccountService.getAdSetsForCurrentUser();
+            //filter ad sets by the text box
+            AdSetss.Items.Clear();
+            foreach (var adSet in adSets)
+            {
+                if (adSet.name.Contains(searchAdSetBox.Text))
+                {
+                    AdSetss.Items.Add(adSet);
+                }
+            }
+
+        }
+
+        private void searchCampaign_Click(object sender, RoutedEventArgs e)
+        {
+            
+
         }
     }
 }
