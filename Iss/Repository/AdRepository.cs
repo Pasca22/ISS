@@ -81,6 +81,32 @@ namespace Iss.Repository
             return ads;
         }
 
+        public List<Ad> getAdsForAdSet(string id)
+        {
+            databaseConnection.OpenConnection();
+            string query = "SELECT * FROM Ad WHERE AdAccountID = @adAccountId AND AdSetID = @id";
+            SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@adAccountId", User.User.getInstance().Id);
+            command.Parameters.AddWithValue("@id", id);
+            adapter.SelectCommand = command;
+            adapter.SelectCommand.ExecuteNonQuery();
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            List<Ad> ads = new List<Ad>();
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                string ID = dataRow["ID"].ToString();
+                string name = dataRow["Name"].ToString();
+                string description = dataRow["Description"].ToString();
+                string url = dataRow["Url"].ToString();
+                string photo = dataRow["Photo"].ToString();
+                Ad ad = new Ad(ID, name, photo, description, url);
+                ads.Add(ad);
+            }
+            databaseConnection.CloseConnection();
+            return ads;
+        }
+
         public void updateAd(Ad ad)
         {
             databaseConnection.OpenConnection();

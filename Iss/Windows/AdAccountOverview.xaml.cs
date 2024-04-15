@@ -198,24 +198,6 @@ namespace Iss.Windows
 
             }
         }
-
-        private void RequestButton_Click(object sender, RoutedEventArgs e)
-        {
-            MakeRequest makeRequest = new MakeRequest();
-            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.contentContainer.Content = makeRequest;
-            }
-        }
-
-        private void AdSets_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            MakeRequest makeRequest = new MakeRequest();
-            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.contentContainer.Content = makeRequest;
             }
         }
     }
