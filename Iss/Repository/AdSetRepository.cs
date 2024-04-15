@@ -27,6 +27,30 @@ namespace Iss.Repository
             DatabaseConnection.CloseConnection();
         }
 
+        public void deleteAdSet(AdSet adSet)
+        {
+            DatabaseConnection.OpenConnection();
+            string query = "DELETE FROM AdSet WHERE ID=@id";
+            SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@id", adSet.id);
+            adapter.DeleteCommand = command;
+            adapter.DeleteCommand.ExecuteNonQuery();
+            DatabaseConnection.CloseConnection();
+        }
+
+        public void updateAdSet(AdSet adSet)
+        {
+            DatabaseConnection.OpenConnection();
+            string query = "UPDATE AdSet SET Name=@Name, TargetAudience=@audience";
+            SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@name", adSet.name);
+            command.Parameters.AddWithValue("@audience", adSet.targetAudience);
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+            DatabaseConnection.CloseConnection();
+
+        }
+
         public AdSet getAdSetByName(AdSet adSet)
         {
             DataSet dataSet = new DataSet();
@@ -53,6 +77,18 @@ namespace Iss.Repository
         {
             DatabaseConnection.OpenConnection();
             string query = "UPDATE Ad SET AdSetID = @adSetID WHERE ID = @adID";
+            SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@adSetID", adSet.id);
+            command.Parameters.AddWithValue("@adID", ad.id);
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+            DatabaseConnection.CloseConnection();
+        }
+
+        public void removeAdFromAdSet(AdSet adSet, Ad ad)
+        {
+            DatabaseConnection.OpenConnection();
+            string query = "UPDATE Ad SET AdSetID = NULL WHERE ID = @adID";
             SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
             command.Parameters.AddWithValue("@adSetID", adSet.id);
             command.Parameters.AddWithValue("@adID", ad.id);
