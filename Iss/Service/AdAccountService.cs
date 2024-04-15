@@ -48,5 +48,11 @@ namespace Iss.Service
         {
             return adAccountRepository.getAdSetsForCurrentUser();
         }
+
+        public void addAdAccount(AdAccount account)
+        {
+
+            this.adAccountRepository.AddAdAccount(account);
+        }
     }
 }

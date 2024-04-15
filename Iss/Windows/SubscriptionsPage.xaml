@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Iss.Windows"
         mc:Ignorable="d" Height="990" Width="1232"
         >
-    <Grid Margin="0,0,0,41" Background="Purple">
+    <Grid Margin="0,0,0,10" Background="Purple">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0*"/>
@@ -21,7 +21,7 @@
         <StackPanel Orientation="Horizontal" Margin="54,109,38,215">
             <StackPanel Width="373">
                 <TextBlock Text="One Ad" FontSize="18" FontWeight="Bold" Foreground="White" Width="62"/>
-                <Button x:Name="oneAdButton" Background="White" Width="250" Height="210" BorderThickness="0">
+                <Button x:Name="oneAdButton" Background="White" Width="250" Height="210" BorderThickness="0" Click="oneAdButton_Click">
                     <TextBlock Text="Unleash Your Potential: Reach 5000 Users for Just $5!" 
                TextAlignment="Center" 
                TextWrapping="Wrap" 

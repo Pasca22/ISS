@@ -30,7 +30,7 @@
                 <StackPanel Margin="140,0,0,0">
                     <Button Content="+ Manage subscriptions" Width="160" Margin="5" Background="#800080" Foreground="White"/>
                     <Button Content="+ See available influnencers" Width="160" Margin="5" Background="#800080" Foreground="White"/>
-                    <Button Content="+ Get an one time payment" Width="160" Margin="5" Background="#800080" Foreground="White"/>
+                    <Button Content="+ Get an one time payment" Width="160" Margin="5" Background="#800080" Foreground="White" Click="Button_Click"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10,10,10,20">

@@ -96,5 +96,16 @@ namespace Iss.Windows
                 mainWindow.contentContainer.Content = mainWindow.homePage;
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SubscriptionsPage subscriptionPage = new SubscriptionsPage();
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = subscriptionPage;
+            }
+
+        }
     }
 }

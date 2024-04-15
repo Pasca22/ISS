@@ -8,6 +8,7 @@ namespace Iss.Windows
 {
     public partial class CreateAdAccount : UserControl
     {
+        public AdAccountService adAccountService = new AdAccountService();
         public CreateAdAccount()
         {
             InitializeComponent();
@@ -27,6 +28,14 @@ namespace Iss.Windows
             string headquartersLocation = Headquarters.Text;
             string authorisingInstitution = AuthorisingInstitutionComboBox.Text;
             //TODO! implement the creation of the account
+            AdAccount account = new AdAccount(nameOfCompany, domainOfActivity, siteUrl, password, taxIdentificationNumber, headquartersLocation, authorisingInstitution);
+            adAccountService.addAdAccount(account);
+            //make the main window appear after button click
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+
+            this.Content = new HomePage();
+
+
         }
     }
 }
