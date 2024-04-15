@@ -49,7 +49,7 @@
                 <ComboBoxItem>Option 2</ComboBoxItem>
                 <ComboBoxItem>Option 3</ComboBoxItem>
             </ComboBox>
-            <TextBox
+            <PasswordBox
                 Name="Password"
                 Width="200"
                 Height="25"
@@ -58,8 +58,7 @@
                 VerticalContentAlignment="Center"
                 Background="#FFEAEAEA"
                 Opacity="0.5"
-                Text="Password"
-                TextChanged="CompanyName_TextChanged" />
+                Password="Password" />
             <TextBox
                 Name="SiteUrl"
                 Width="200"

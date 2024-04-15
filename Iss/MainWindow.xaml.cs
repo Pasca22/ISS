@@ -34,7 +34,7 @@ namespace Iss
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = textUsername.Text;
-            string password = textPassword.Text;
+            string password = textPassword.Password;
             try
             {
                 adAccountService.login(username, password);
@@ -47,6 +47,12 @@ namespace Iss
             {
                 MessageBox.Show("Invalid username or password. Please try again.");
             }
+        }
+
+        private void signupButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateAdAccount createAdAccount = new CreateAdAccount();
+            contentContainer.Content = createAdAccount;
         }
     }
 }
