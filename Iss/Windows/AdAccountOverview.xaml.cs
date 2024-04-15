@@ -98,8 +98,7 @@ namespace Iss.Windows
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            // Create an instance of the home page
-            HomePage homePage = new HomePage();
+            
 
             // Replace the current user control with the home page
             Window window = Window.GetWindow(this);
