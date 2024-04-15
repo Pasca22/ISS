@@ -43,7 +43,6 @@ namespace Iss.Windows
 
             MessageBox.Show("Ad set created with " + ads.Count + " ads", "Ad Set Created", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // go back to account overview
             AdAccountOverview adAccountOverview = new AdAccountOverview();
             this.Content = adAccountOverview;
         }

@@ -6,18 +6,28 @@
         xmlns:local="clr-namespace:Iss.Windows"
         mc:Ignorable="d" Height="450" Width="800">
     <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- For the title -->
+            <RowDefinition Height="*"/>
+            <!-- For content -->
+        </Grid.RowDefinitions>
 
+        <!-- Title at the top center -->
+        <TextBlock Grid.Row="0" Text="Create Campaign" FontSize="20" FontWeight="Bold" Height="33" HorizontalAlignment="Center" Margin="0,10,0,10"/>
 
-        <StackPanel Grid.ColumnSpan="3" >
-            <TextBlock Text="Create Campaign" FontSize="20" Margin="0,0,0,0" FontWeight="Bold" Height="33"/>
+        <!-- Main Content Grid for Left and Right Sections -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <StackPanel Height="401" Width="792" RenderTransformOrigin="0.509,0.544">
-                
+            <!-- Left Side Controls -->
+            <StackPanel Grid.Column="0">
                 <TextBlock Text="Select Ad Sets: " FontSize="14" Margin="20,35,0,-25" FontWeight="Bold" Height="44"/>
-                <TextBox x:Name="searchTextBox" Width="750" Margin="10" Text="Search..."/>
-
-                <ListBox x:Name="itemListBox" Width="750" Height="150" Margin="10"
-         SelectionMode="Multiple">
+                <TextBox x:Name="searchTextBox" Width="350" Margin="10" Text="Search..."/>
+                <ListBox x:Name="itemListBox" Width="350" Height="150" Margin="10" SelectionMode="Multiple">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -37,22 +47,18 @@
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                    <ListBoxItem>Ad Set 1</ListBoxItem>
-                    <ListBoxItem>Ad Set 2</ListBoxItem>
-                    <ListBoxItem>Ad Set 3</ListBoxItem>
-                    <ListBoxItem>Ad Set 4</ListBoxItem>
-                    <ListBoxItem>Ad Set 5</ListBoxItem>
-                    <ListBoxItem>Ad Set 6</ListBoxItem>
                 </ListBox>
-
-                <Button Name="createCampaignButton" Content="Create Campaign" Width="250" Margin="0,10,0,0" Background="#800080" Foreground="White"/>
-
+                <Button Name="createCampaignButton" Content="Create Campaign" Width="250" Margin="0,10,0,0" Background="#800080" Foreground="White" Click="createCampaignButton_Click"/>
             </StackPanel>
 
-
-        </StackPanel>
-
-
-
+            <!-- Right Side Controls -->
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock Text="Name:" FontSize="14" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <TextBox x:Name="nameTextBox" Width="200" Margin="0,0,0,10"/>
+                <TextBlock Text="Duration in days (7-30 days)" FontSize="14" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <TextBox x:Name="durationTextBox" Width="200" Margin="0,0,0,10"/>
+                <Calendar x:Name="startDatePicker" SelectionMode="SingleRange" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

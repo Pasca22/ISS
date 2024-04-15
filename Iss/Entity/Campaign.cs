@@ -8,19 +8,39 @@ namespace Iss.Entity
 {
     public class Campaign
     {
+        public string id { get; set; }
         public string campaignName { get; set; }
-        public string targetAudience { get; set; }
         public DateTime startDate { get; set; }
         public int duration { get; set; }
 
-        public Campaign(string campaignName, string targetAudience, DateTime startDate, int duration)
-        {
+        public List<AdSet> adSets { get; set; }
 
+        public Campaign(string campaignName, DateTime startDate, int duration)
+        {
             this.campaignName = campaignName;
-            this.targetAudience = targetAudience;
             this.startDate = startDate;
             this.duration = duration;
+        }
 
+        public Campaign(string campaignName, DateTime startDate, int duration, List<AdSet> adSets)
+        {
+            this.campaignName = campaignName;
+            this.startDate = startDate;
+            this.duration = duration;
+            this.adSets = adSets;
+        }
+
+        public Campaign(string id, string campaignName, DateTime startDate, int duration)
+        {
+            this.id = id;
+            this.campaignName = campaignName;
+            this.startDate = startDate;
+            this.duration = duration;
+        }
+
+        public override string ToString()
+        {
+            return "CAMPAIGN NAME: " + campaignName + "-" + "START DATE: " + startDate.ToString() + "-" + "DURATION: " + duration;
         }
     }
 }

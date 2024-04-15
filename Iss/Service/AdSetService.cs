@@ -10,7 +10,7 @@ namespace Iss.Service
 {
     public class AdSetService
     {
-        public AdSetRepository adSetRepository = new AdSetRepository();
+        private AdSetRepository adSetRepository = new AdSetRepository();
 
         public void addAdSet(AdSet adSet)
         {
@@ -22,6 +22,11 @@ namespace Iss.Service
             {
                 adSetRepository.addAdToAdSet(adSet, ad);
             }
+        }
+
+        public List<AdSet> getAdSetsThatAreNotInCampaign()
+        {
+            return adSetRepository.getAdSetsThatAreNotInCampaign();
         }
     }
 }
