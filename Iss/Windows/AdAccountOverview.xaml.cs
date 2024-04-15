@@ -211,21 +211,18 @@ namespace Iss.Windows
 
         private void AdSets_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-         // Check if an item is selected
-             if (AdSetss.SelectedItem != null)
-             {
-                 // Assuming you have a function to navigate to the new screen, 
-                 // pass the selected ad to it
-                 MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
-                 if (mainWindow != null)
-                 {
-                     mainWindow.contentContainer.Content = new AdSetDetails((AdSet)AdSetss.SelectedItem);
-                 }
-             }
-             
-             }
-        
+            // Check if an item is selected
+            if (AdSetss.SelectedItem != null)
+            {
+                // Assuming you have a function to navigate to the new screen, 
+                // pass the selected ad to it
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.contentContainer.Content = new AdSetDetails((AdSet)AdSetss.SelectedItem);
+                }
             }
+
         }
     }
 }
