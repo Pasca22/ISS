@@ -9,13 +9,18 @@
     <Grid>
         <StackPanel Background="White">
 
+            <Button x:Name="home_button" Content="Home" Width="50" Margin="5" HorizontalAlignment="Left" Click="butonulMeuApasat"></Button>
             <TextBlock Text="Collaborations"  FontWeight="Bold" Margin="0,10,0,10" FontSize="24"  HorizontalAlignment="Center" Foreground="Purple"/>
             <ListView Name="requestListView" Width="600" Height="300" ScrollViewer.VerticalScrollBarVisibility="Auto"  Margin="0,10,0,0" BorderBrush="Purple" >
                 <!-- Define the GridView for the ListView -->
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Collaboration Name" Width="400" DisplayMemberBinding="{Binding Username}" />
-                        <GridViewColumn Header="Status" Width="200" DisplayMemberBinding="{Binding Status}" />
+                        <GridViewColumn Header="Overview" Width="200" DisplayMemberBinding="{Binding collaborationOverview}" />
+                        <GridViewColumn Header="Fee" Width="200" DisplayMemberBinding="{Binding collaborationFee}" />
+                        <GridViewColumn Header="Start Date" Width="100" DisplayMemberBinding="{Binding startDate, StringFormat={}{0:MM/dd/yyyy}}" />
+                        <GridViewColumn Header="End Date" Width="100" DisplayMemberBinding="{Binding endDate, StringFormat={}{0:MM/dd/yyyy}}" />
+
+
                     </GridView>
                 </ListView.View>
             </ListView>
