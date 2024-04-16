@@ -83,7 +83,7 @@ namespace Iss.Repository
             databaseConnection.OpenConnection();
             //add to the database a subscription
             int number_of_campaigns = Constants.NUMBER_OF_CAMPAIGNS_FOR_SUBSCRIPTION[name];
-            string query = "INSERT INTO Subscription(@name, @number_of_campaigns, @adAccountId)";
+            string query = "INSERT INTO Subscription Values (@name, @number_of_campaigns, @adAccountId)";
             SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@number_of_campaigns", number_of_campaigns);
