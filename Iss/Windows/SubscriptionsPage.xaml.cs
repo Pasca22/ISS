@@ -85,7 +85,6 @@ namespace Iss.Windows
         private void goldSubscriptionButton_Click(object sender, RoutedEventArgs e)
         {
             paymentService.addGoldSubscription();
-            paymentService.addSilverSubscription();
             Payment paymentPage = new();
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)

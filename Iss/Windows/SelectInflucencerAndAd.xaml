@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="Iss.Windows.SelectInflucencerAndAd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Iss.Windows"
+        mc:Ignorable="d" Height="450" Width="800">
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Row -->
+        <TextBlock Text="Request a collaboration with an influencer" FontWeight="Bold" 
+                   FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Grid.Row="0" Margin="10"/>
+
+        <!-- Content Rows -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Section to select your influencer -->
+            <StackPanel Grid.Column="0" Margin="10">
+                <TextBlock Text="Select your Influencer" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Margin="0,5,1,1" Background="White" HorizontalAlignment="Center" >
+                    <TextBox Name="searchInfluencerBox" Width="200" Height="20" Margin="2,0,0,0" Opacity="0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Button Name="searchInfluencerButton" Content="Search" Width="50" Height="20" Margin="2,0,0,0" Foreground="Black" Background="{x:Null}" BorderBrush="Purple" Click="searchInfluencerButton_Click"/>
+                </StackPanel>
+                <ListBox x:Name="influencerListBox" Height="200" Margin="10" SelectionMode="Single"/>
+            </StackPanel>
+
+            <!-- Section to choose which ad to promote -->
+            <StackPanel Grid.Column="1" Margin="10">
+                <TextBlock Text="Choose Which Ad to Promote" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Margin="0,5,1,1" Background="White" HorizontalAlignment="Center" >
+                    <TextBox Name="searchAdTextBox" Width="200" Height="20" Margin="2,0,0,0" Opacity="0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Button Name="searchAdTextButton" Content="Search" Width="50" Height="20" Margin="2,0,0,0" Foreground="Black" Background="{x:Null}" BorderBrush="Purple" Click="searchAdTextButton_Click"/>
+                </StackPanel>
+                <ListBox x:Name="adListBox" Height="200" Margin="10" SelectionMode="Single"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Button Row -->
+        <Button Content="Continue" Grid.Row="2" Background="Purple" Foreground="White" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Margin="0,10,20,10" Click="continueButton_Click"/>
+
+    </Grid>
+</UserControl>

@@ -23,9 +23,12 @@ namespace Iss.Windows
     /// </summary>
     public partial class MakeRequest : UserControl
     {
-        public MakeRequest()
+        private RequestService requestService = new RequestService();
+        public MakeRequest(Influencer influencer, Ad selectedAd)
         {
             InitializeComponent();
+            adOverview.Text = selectedAd.description;
+            compensation.Text = influencer.collaborationPrice.ToString();
         }
 
         private void MakeRequestButton_Click(object sender, RoutedEventArgs e)
@@ -64,6 +67,12 @@ namespace Iss.Windows
                 // Show success message or navigate to another page
                 MessageBox.Show("Request created successfully!");
                 clearAll();
+                AdAccountOverview accountOverview = new AdAccountOverview();
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.contentContainer.Content = accountOverview;
+                }
             }
             catch (Exception ex)
             {

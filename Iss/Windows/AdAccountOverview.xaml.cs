@@ -201,11 +201,11 @@ namespace Iss.Windows
 
         private void RequestButton_Click(object sender, RoutedEventArgs e)
         {
-             MakeRequest makeRequest = new MakeRequest();
+             SelectInflucencerAndAd selectInflucencerAndAd = new SelectInflucencerAndAd();
              MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
              if (mainWindow != null)
              {
-                 mainWindow.contentContainer.Content = makeRequest;
+                 mainWindow.contentContainer.Content = selectInflucencerAndAd;
              }
         }
 
@@ -232,6 +232,18 @@ namespace Iss.Windows
             {
                 mainWindow.contentContainer.Content = new CampaignDetails((Campaign)Campaigns.SelectedItem);
             }
+        }
+
+        private void seeActiveCollaborationsButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool isAdAccount = true;
+            CollaborationPage activeCollaborations = new CollaborationPage(isAdAccount);
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = activeCollaborations;
+            }
+
         }
     }
 }
