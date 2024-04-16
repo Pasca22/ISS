@@ -35,13 +35,14 @@ namespace Iss.Windows
             }
         }
 
-        private void createAdButton_Click(object sender, EventArgs e)
+
+        private void NegotiationHistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateAd createAd = new CreateAd();
+            NegotiationHistory negotiationHistory = new NegotiationHistory();
             MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
-                mainWindow.contentContainer.Content = createAd;
+                mainWindow.contentContainer.Content = negotiationHistory;
             }
         }
     }

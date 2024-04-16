@@ -8,7 +8,6 @@
         Height="450" Width="800">
     <Grid Background="White">
         <Grid.Resources>
-
             <Style x:Key="PurpleTextBlock" TargetType="TextBlock">
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="Foreground" Value="Purple"/>
@@ -44,8 +43,8 @@
             <Button x:Name="accountOverviewButton" Content="Go To Account Overview" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
         HorizontalAlignment="Center" VerticalAlignment="Center" Click="accountOverviewButton_Click"
          Style="{StaticResource RoundCornerButton}"/>
-            <Button x:Name="CreateAdButton" Content="Go To Create Ad" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
-HorizontalAlignment="Center" VerticalAlignment="Center" Click="createAdButton_Click"
+            <Button x:Name="NegotiationHistoryButton" Content="Go To Negotiation History" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
+HorizontalAlignment="Center" VerticalAlignment="Center" Click="NegotiationHistoryButton_Click"
  Style="{StaticResource RoundCornerButton}"/>
         </StackPanel>
     </Grid>
