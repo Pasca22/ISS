@@ -233,5 +233,17 @@ namespace Iss.Windows
                 mainWindow.contentContainer.Content = new CampaignDetails((Campaign)Campaigns.SelectedItem);
             }
         }
+
+
+        private void seeActiveCollaborationsButton_Click(object sender, RoutedEventArgs e)
+        {
+            CollaborationPage activeCollaborations = new CollaborationPage();
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = activeCollaborations;
+            }
+
+        }
     }
 }

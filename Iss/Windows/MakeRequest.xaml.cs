@@ -23,6 +23,7 @@ namespace Iss.Windows
     /// </summary>
     public partial class MakeRequest : UserControl
     {
+        internal AdAccountOverview adAccountOverview;
         public MakeRequest()
         {
             InitializeComponent();
@@ -64,6 +65,13 @@ namespace Iss.Windows
                 // Show success message or navigate to another page
                 MessageBox.Show("Request created successfully!");
                 clearAll();
+                AdAccountOverview accountOverview = new AdAccountOverview();
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.contentContainer.Content = accountOverview;
+                }
+
             }
             catch (Exception ex)
             {
