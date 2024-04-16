@@ -26,13 +26,28 @@ namespace Iss.Repository
             // Execute the query to get the influencer ID
             int influencerId = Convert.ToInt32(influencerCommand.ExecuteScalar());
 
-            string query = "INSERT INTO Request(AdAccountID,InfluencerID,CollaborationTitle, CollaborationOverview, ContentRequirements, CompensationPackage,InfluencerAccept,StartDate, EndDate) values (@AdAccountID,@InfluencerID,@collaborationTitle, @collaborationOverview, @contentRequirements, @compensation,@influencerAccept,@startDate, @endDate)";
+            /*
+             CREATE TABLE Request (
+	            AdAccountID INT FOREIGN KEY REFERENCES AdAccount(ID),
+	            InfluencerID INT FOREIGN KEY REFERENCES Influencer(ID),
+	            RequestID int NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	            AdOverview VARCHAR(1000),
+	            CollaborationTitle VARCHAR(255),
+	            ContentRequirements VARCHAR(1000),
+	            CompensationPackage VARCHAR(255),
+	            InfluencerAccept bit,
+	            StarDate VARCHAR(50),
+	            EndDate VARCHAR(50)
+            )
+            Now create me the insert query for the request
+             */
+            string query= "INSERT INTO Request(AdAccountID, InfluencerID, CollaborationTitle, AdOverview, ContentRequirements, CompensationPackage, InfluencerAccept, StarDate, EndDate) VALUES (@AdAccountID, @InfluencerID, @collaborationTitle, @AdOverview, @contentRequirements, @compensation, @influencerAccept, @startDate, @endDate)";
 
             SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
             command.Parameters.AddWithValue("@AdAccountID", User.User.getInstance().Id);
             command.Parameters.AddWithValue("@InfluencerID", influencerId);
             command.Parameters.AddWithValue("@collaborationTitle", request.collaborationTitle);
-            command.Parameters.AddWithValue("@collaborationOverview", request.collaborationOverview);
+            command.Parameters.AddWithValue("@AdOverview", request.adOverview);
             command.Parameters.AddWithValue("@contentRequirements", request.contentRequirements);
             command.Parameters.AddWithValue("@compensation", request.compensation);
             command.Parameters.AddWithValue("@influencerAccept", request.influencerAccept);

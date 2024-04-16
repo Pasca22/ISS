@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Iss.Entity
 {
-    public class Request(string collaborationTitle, string collaborationOverview, string contentRequirements, string compensation,string startDate, string endDate,bool influencerAccept)
+    public class Request(string collaborationTitle, string adOverview, string contentRequirements, string compensation,string startDate, string endDate,bool influencerAccept)
     {
         public string collaborationTitle { get; set; } = collaborationTitle;
-        public string collaborationOverview { get; set; } = collaborationOverview;
+        public string adOverview { get; set; } = adOverview;
         public string contentRequirements { get; set; } = contentRequirements;
         public string compensation { get; set; } = compensation;
         public string startDate { get; set; } = startDate;
