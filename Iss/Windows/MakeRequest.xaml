@@ -9,9 +9,9 @@
     <Grid Background="White">
         <StackPanel Orientation="Vertical">
             <TextBox Name="collaborationTitle" Text="Collaboration Title" FontWeight="DemiBold" FontSize="25" TextAlignment="Center" ></TextBox>
-            <TextBlock x:Name="overviewlabel" Text="Collaboration Overview" FontWeight="DemiBold" FontSize="18" TextAlignment="Center" Margin="0 20 0 0"/>
+            <TextBlock x:Name="overviewlabel" Text="Ad Overview" FontWeight="DemiBold" FontSize="18" TextAlignment="Center" Margin="0 20 0 0"/>
             <Border>
-                <TextBox Name="collabOverview" FontSize="14" TextAlignment="Center" VerticalAlignment="Top"  Height="80"/>
+                <TextBox Name="adOverview" FontSize="14" TextAlignment="Center" VerticalAlignment="Top"  Height="80"/>
             </Border>
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical" Margin="30 30 0 0">

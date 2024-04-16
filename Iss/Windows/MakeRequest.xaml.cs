@@ -35,7 +35,7 @@ namespace Iss.Windows
             {
                 //also check for the calendar selection to not be empty
                 if (string.IsNullOrWhiteSpace(collaborationTitle.Text) ||
-                string.IsNullOrWhiteSpace(collabOverview.Text) ||
+                string.IsNullOrWhiteSpace(adOverview.Text) ||
             string.IsNullOrWhiteSpace(contentRequirements.Text) || string.IsNullOrEmpty(compensation.Text) || calendar.SelectedDates.Count==0)
                 {
                     MessageBox.Show("Please fill in all fields and selected a timeline");
@@ -44,7 +44,7 @@ namespace Iss.Windows
 
                 // get request details from input fields
                 string collaborationTitleString = collaborationTitle.Text;
-                string collabOverviewString = collabOverview.Text;
+                string adOverviewString = adOverview.Text;
                 string contentRequirementsString = contentRequirements.Text;
                 string compensationString = compensation.Text;
                 //get the selected dates from the calendar
@@ -54,7 +54,7 @@ namespace Iss.Windows
                 string endDateString = endDate.ToString("yyyy-MM-dd");
 
                 // Create new Request object
-                Request request = new Request(collaborationTitleString, collabOverviewString, contentRequirementsString, compensationString, startDateString, endDateString,false);
+                Request request = new Request(collaborationTitleString, adOverviewString, contentRequirementsString, compensationString, startDateString, endDateString,false);
 
                 //Add the request using RequestService
                
@@ -74,7 +74,7 @@ namespace Iss.Windows
         private void clearAll()
         {
             collaborationTitle.Text = "";
-            collabOverview.Text = "";
+            adOverview.Text = "";
             contentRequirements.Text = "";
             compensation.Text = "";
             calendar.SelectedDates.Clear();
