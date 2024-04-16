@@ -1,5 +1,9 @@
-﻿using System;
+﻿
+using Iss.Entity;
+using Iss.Service;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +24,64 @@ namespace Iss.Windows
     /// </summary>
     public partial class CollaborationPage : UserControl
     {
-        public CollaborationPage()
+        private bool isAdAccount;
+        public CollaborationPage(bool isAdAccount)
         {
             InitializeComponent();
+            this.isAdAccount = isAdAccount;
+            if (this.isAdAccount)
+            {
+                populateListViewAdAccount();
+            }
+            else
+            {
+                populateListView();
+            }
         }
+
+        public void populateListViewAdAccount()
+        {
+            CollaborationService collaborationService = new();
+            List<Collaboration> collaborations = collaborationService.getActiveCollaborationForAdAccount();
+
+            foreach (Collaboration collaboration in collaborations)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Content = collaboration;
+                requestListView.Items.Add(item);
+            }
+        }
+
+        public void populateListView()
+        {
+            CollaborationService collaborationService = new();
+            List<Collaboration> collaborations = collaborationService.getCollaborationForInfluencer();
+
+            foreach (Collaboration collaboration in collaborations)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Content = collaboration;
+                requestListView.Items.Add(item);
+            }
+        }
+
+        public void butonulMeuApasat(object sender, RoutedEventArgs e)
+        {
+            if (this.isAdAccount)
+            {
+                HomePage homePage = new HomePage();
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.contentContainer.Content = homePage;
+                }
+            }
+            else
+            {
+                //TODO: here should be the logic for the influencer to go back to the influencer start page
+
+            }
+        }
+
     }
 }

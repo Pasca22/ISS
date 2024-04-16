@@ -236,7 +236,8 @@ namespace Iss.Windows
 
         private void seeActiveCollaborationsButton_Click(object sender, RoutedEventArgs e)
         {
-            CollaborationPage activeCollaborations = new CollaborationPage();
+            bool isAdAccount = true;
+            CollaborationPage activeCollaborations = new CollaborationPage(isAdAccount);
             MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,17 @@ namespace Iss.Windows
             if (mainWindow != null)
             {
                 mainWindow.contentContainer.Content = listOfRequests;
+            }
+
+        }
+        private void goToCollaborationClick(object sender, RoutedEventArgs e)
+        {
+            bool isAdAccount = false;
+            CollaborationPage collaborationPage = new CollaborationPage(isAdAccount);
+            InfluencerStart mainWindow = Window.GetWindow(this) as InfluencerStart;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = collaborationPage;
             }
 
         }
