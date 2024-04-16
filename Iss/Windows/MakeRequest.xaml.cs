@@ -23,6 +23,7 @@ namespace Iss.Windows
     /// </summary>
     public partial class MakeRequest : UserControl
     {
+        private RequestService requestService = new RequestService();
         public MakeRequest(Influencer influencer, Ad selectedAd)
         {
             InitializeComponent();

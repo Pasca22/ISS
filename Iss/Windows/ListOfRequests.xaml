@@ -11,18 +11,30 @@
             <Border BorderThickness="10" BorderBrush="White" CornerRadius="20">
                 <TextBlock Height="380" Width="700" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="40 20 10 10">
                     <StackPanel Orientation="Vertical">
-                        <TextBlock FontSize="25" FontWeight="DemiBold" >Collaboration Requests</TextBlock>
-                     <ListView Name="requestListView" Width="620" Height="300" ScrollViewer.VerticalScrollBarVisibility="Auto"  Margin="0 10 0 0">
+                        <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="25" FontWeight="DemiBold" >Collaboration Requests</TextBlock>
+                               <Button Content="Start Page" Width="80" Height="25" HorizontalAlignment="Left" Margin="280 5 0 0" Click="StartPageButton_Click"></Button>
+                        </StackPanel>
+                    
+                     <ListView Name="requestsListView" Width="620" Height="250" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Auto"  Margin="0 10 0 0">
                          <ListView.View>
                              <GridView>
-                                 <GridViewColumn Header="Request" Width="400" />
-                                 <GridViewColumn Header="Options" Width="200" />
+                                 <GridViewColumn Header="Requests" Width="620" />
                              </GridView>
                          </ListView.View>
                      </ListView>
-                    </StackPanel>
+                 
+                         <StackPanel Orientation="Horizontal">
+                             <Button Name="requestDetailsButton" Content="REQUEST DETAILS" Click="DetailsButton_Click" Background="Purple" Foreground="White" Margin="50 20 0 0" Width="100" Height="28"></Button>
+                             <Button Name="acceptButton" Content="ACCEPT" Click="AcceptButton_Click" Background="Purple" Foreground="White" Margin="50 20 0 0" Width="100" Height="28"></Button>
+                             <Button Name="declineButton" Content="DECLINE" Click="DeclineButton_Click" Background="Purple" Foreground="White" Margin="50 20 0 0" Width="100" Height="28"></Button>
+                             <Button Name="negociateButton" Content="NEGOCIATE" Click="NegociateButton_Click" Background="Purple" Foreground="White" Margin="50 20 0 0" Width="100" Height="28"></Button>
+                             
+                         </StackPanel>  
+                          </StackPanel>
                 </TextBlock>
             </Border>
+
         </StackPanel>
     </Grid>
 </UserControl>
