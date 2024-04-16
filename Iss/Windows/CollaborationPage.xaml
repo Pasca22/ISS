@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Iss.Windows.CollaborationPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Iss.Windows"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Background="White">
+
+            <TextBlock Text="Collaborations"  FontWeight="Bold" Margin="0,10,0,10" FontSize="24"  HorizontalAlignment="Center" Foreground="Purple"/>
+            <ListView Name="requestListView" Width="600" Height="300" ScrollViewer.VerticalScrollBarVisibility="Auto"  Margin="0,10,0,0" BorderBrush="Purple" >
+                <!-- Define the GridView for the ListView -->
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Collaboration Name" Width="400" DisplayMemberBinding="{Binding Username}" />
+                        <GridViewColumn Header="Status" Width="200" DisplayMemberBinding="{Binding Status}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
