@@ -61,5 +61,42 @@ namespace Iss.Repository
             adapter.UpdateCommand.ExecuteNonQuery();
             DatabaseConnection.CloseConnection();
         }
+
+        public void deleteAdSetFromCampaign(Campaign campaign, AdSet adSet)
+        {
+            DatabaseConnection.OpenConnection();
+            string query = "UPDATE AdSet SET CampaignID = NULL WHERE ID = @adSetID";
+            SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@campaignID", campaign.id);
+            command.Parameters.AddWithValue("@adSetID", adSet.id);
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+            DatabaseConnection.CloseConnection();
+        }
+
+        public void deleteCampaign(Campaign campaign)
+        {
+            DatabaseConnection.OpenConnection();
+            string query = "DELETE FROM Campaign WHERE ID = @id";
+            SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@id", campaign.id);
+            adapter.DeleteCommand = command;
+            adapter.DeleteCommand.ExecuteNonQuery();
+            DatabaseConnection.CloseConnection();
+        }
+
+        public void updateCampaign(Campaign campaign)
+        {
+            DatabaseConnection.OpenConnection();
+            string query = "UPDATE Campaign SET Name=@name, StartDate=@date, Duration=@duration WHERE ID = @id";
+            SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@id", campaign.id);
+            command.Parameters.AddWithValue("@name", campaign.campaignName);
+            command.Parameters.AddWithValue("@date", campaign.startDate);
+            command.Parameters.AddWithValue("@duration", campaign.duration);
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+            DatabaseConnection.CloseConnection();
+        }
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using Iss.Entity;
 using Iss.Service;
 
@@ -45,6 +46,66 @@ namespace Iss.Windows
             currentAdSets = adSetService.getAdSetsInCampaign(campaign.id);
             itemListBox2.SetValue(ItemsControl.ItemsSourceProperty, availableAdSets);
             itemListBox1.SetValue(ItemsControl.ItemsSourceProperty, currentAdSets);
+        }
+
+        public void deleteBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.campaignService.deleteCampaign(campaign);
+                MessageBox.Show("Campaign deleted succesfully");
+                AdAccountOverview adAccountOverview = new AdAccountOverview();
+                this.Content = adAccountOverview;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+        public void updateBtn_Click(Object sender, EventArgs e)
+        {
+            
+            if (string.IsNullOrEmpty(nameTextBox.Text) || string.IsNullOrEmpty(durationTextBox.Text))
+            {
+                MessageBox.Show("Target audience and name must not be empty!");
+                return; // Exit the method without performing the update
+            }
+
+            if (itemListBox1.Items.Count == 0)
+            {
+                MessageBox.Show("Please select at least one item from the first list!");
+                return; // Exit the method without performing the update
+            }
+            if (startDatePicker.SelectedDate == null)
+            {
+                MessageBox.Show("Please select a start date!");
+                return; // Exit the method without performing the update
+            }
+
+
+            try
+            {
+                Campaign newCampaign = new Campaign(campaign.id, nameTextBox.Text, startDatePicker.SelectedDate.Value, int.Parse(durationTextBox.Text));
+                campaignService.updateCampaign(newCampaign);
+                foreach (AdSet adset in itemListBox1.Items)
+                {
+                    this.campaignService.addAdSetToCampaign(newCampaign, adset);
+                }
+                foreach (AdSet adset in itemListBox2.Items)
+                {
+                    this.campaignService.deleteAdSetFromCampaign(newCampaign, adset);
+                }
+
+                MessageBox.Show("Campaign updated");
+
+                AdAccountOverview adAccountOverview = new AdAccountOverview();
+                this.Content = adAccountOverview;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -97,6 +158,25 @@ namespace Iss.Windows
                 itemListBox1.ItemsSource = null;
                 itemListBox1.ItemsSource = currentAdSets;
             }
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of the home page
+            HomePage homePage = new HomePage();
+
+            // Replace the current user control with the home page
+            Window window = Window.GetWindow(this);
+            if (window != null && window is MainWindow mainWindow)
+            {
+                mainWindow.contentContainer.Content = mainWindow.homePage;
+            }
+        }
+
+        private void AccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            AdAccountOverview adAccountOverview = new AdAccountOverview();
+            this.Content = adAccountOverview;
         }
 
     }
