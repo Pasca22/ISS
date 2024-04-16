@@ -40,6 +40,11 @@ namespace Iss.Service
             return adSetRepository.getAdSetsThatAreNotInCampaign();
         }
 
+        public List<AdSet> getAdSetsInCampaign(string id)
+        {
+            return adSetRepository.getAdSetsInCampaign(id);
+        }
+
         public AdSet getAdSetByName(AdSet adSet)
         {
             return adSetRepository.getAdSetByName(adSet);

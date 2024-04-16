@@ -118,5 +118,28 @@ namespace Iss.Repository
             DatabaseConnection.CloseConnection();
             return adSets;
         }
+
+        public List<AdSet> getAdSetsInCampaign(string Id)
+        {
+            List<AdSet> adSets = new List<AdSet>();
+            DataSet dataSet = new DataSet();
+            DatabaseConnection.OpenConnection();
+            string query = "SELECT * FROM AdSet WHERE CampaignID=@id";
+            SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@id", Id);
+            adapter.SelectCommand = command;
+            adapter.SelectCommand.ExecuteNonQuery();
+            adapter.Fill(dataSet);
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                string id = dataRow["ID"].ToString();
+                string name = dataRow["Name"].ToString();
+                string targetAudience = dataRow["TargetAudience"].ToString();
+                AdSet adSet = new AdSet(id, name, targetAudience);
+                adSets.Add(adSet);
+            }
+            DatabaseConnection.CloseConnection();
+            return adSets;
+        }
     }
 }
