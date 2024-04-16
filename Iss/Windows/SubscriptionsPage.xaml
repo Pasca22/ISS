@@ -1,112 +1,105 @@
 ﻿<UserControl x:Class="Iss.Windows.SubscriptionsPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Iss.Windows"
-        mc:Ignorable="d" Height="990" Width="1232"
-        >
-    <Grid Margin="0,0,0,10" Background="Purple">
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Iss.Windows"
+             mc:Ignorable="d"
+             Height="450"
+             Width="800">
+    <Grid Margin="0,0,0,10" Background="Purple" RenderTransformOrigin="0.501,0.457">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0*"/>
-            <RowDefinition Height="0*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Height="89" Width="430">
-            <!-- One Time Payments section-->
-            <!-- One Time Payments section-->
-            <TextBlock Text="One Time Payments" FontSize="26" FontWeight="Bold" Foreground="White" Width="244"/>
-            <TextBlock Text="Unlock limitless possibilities with one simple payment!" FontSize="18" Foreground="White" Margin="0,10,0,20"/>
+
+        <!-- One Time Payments section -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="63">
+            <TextBlock Text="One Time Payments" FontSize="18" FontWeight="Bold" Foreground="White" Width="173"/>
+            <TextBlock Text="Unlock limitless possibilities with one simple payment!" FontSize="16" Foreground="White" Margin="0,10,0,20" Height="19"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="54,109,38,215">
-            <StackPanel Width="373">
-                <TextBlock Text="One Ad" FontSize="18" FontWeight="Bold" Foreground="White" Width="62"/>
-                <Button x:Name="oneAdButton" Background="White" Width="250" Height="210" BorderThickness="0" Click="oneAdButton_Click">
+
+        <!-- One Time Payments buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+            <StackPanel Width="181" Height="137">
+                <TextBlock Text="One Ad" FontSize="16" FontWeight="Bold" Foreground="White" Width="59"/>
+                <Button x:Name="oneAdButton" Background="White" Width="163" Height="118" BorderThickness="0" Click="oneAdButton_Click">
                     <TextBlock Text="Unleash Your Potential: Reach 5000 Users for Just $5!" 
-               TextAlignment="Center" 
-               TextWrapping="Wrap" 
-               TextTrimming="WordEllipsis" 
-               Foreground="Black"
-               FontSize="30" Height="172" Width="240"/>
+                               TextAlignment="Center" 
+                               TextWrapping="Wrap" 
+                               TextTrimming="WordEllipsis" 
+                               Foreground="Black"
+                               FontSize="18"/>
                 </Button>
             </StackPanel>
-            <StackPanel Width="409">
-                <TextBlock Text="One Ad Set" FontSize="18" FontWeight="Bold" Foreground="White" Width="98"/>
-                <Button Click="oneAdSetButton_Click" x:Name="oneAdSetButton" Background="White" Width="250" Height="210" BorderThickness="0">
+            <StackPanel Width="190" Height="137">
+                <TextBlock Text="One Ad Set" FontSize="16" FontWeight="Bold" Foreground="White" Width="87"/>
+                <Button Click="oneAdSetButton_Click" x:Name="oneAdSetButton" Background="White" Width="167" Height="121" BorderThickness="0">
                     <TextBlock Text="Supercharge Your Reach: Target 7500 Users for Only $18!" 
-   TextAlignment="Center" 
-   TextWrapping="Wrap" 
-   TextTrimming="WordEllipsis" 
-   Foreground="Black"
-   FontSize="30" Height="176" Width="240"/>
+                               TextAlignment="Center" 
+                               TextWrapping="Wrap" 
+                               TextTrimming="WordEllipsis" 
+                               Foreground="Black"
+                               FontSize="18"/>
                 </Button>
-
-
             </StackPanel>
-            <StackPanel Width="356">
-                <TextBlock Text="One Campaign" FontSize="18" FontWeight="Bold" Foreground="White" Width="125"/>
-                <Button Click="oneCampaignButton_Click" x:Name="oneCampaignButton" Background="White" Width="250" Height="210" BorderThickness="0">
+            <StackPanel Width="183" Height="135">
+                <TextBlock Text="One Campaign" FontSize="16" FontWeight="Bold" Foreground="White" Width="109"/>
+                <Button Click="oneCampaignButton_Click" x:Name="oneCampaignButton" Background="White" Width="168" Height="118" BorderThickness="0">
                     <TextBlock Text="Elevate Your Impact: Reach 10000 Users for Just $150!" 
-   TextAlignment="Center" 
-   TextWrapping="Wrap" 
-   TextTrimming="WordEllipsis" 
-   Foreground="Black"
-   FontSize="30" Height="172" Width="240"/>
+                               TextAlignment="Center" 
+                               TextWrapping="Wrap" 
+                               TextTrimming="WordEllipsis" 
+                               Foreground="Black"
+                               FontSize="18"/>
                 </Button>
-
-
             </StackPanel>
-
-
-
         </StackPanel>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,440,0,0" Height="62" Width="370">
-
-            <TextBlock Text="Subscriptions" FontSize="26" FontWeight="Bold" Foreground="White" Width="167"/>
-            <TextBlock Text="Experience endless value, subscribe to success!" FontSize="18" Foreground="White" Height="27"/>
+        <!-- Subscriptions section -->
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="55">
+            <TextBlock Text="Subscriptions" FontSize="18" FontWeight="Bold" Foreground="White" Width="115"/>
+            <TextBlock Text="Experience endless value, subscribe to success!" FontSize="16" Foreground="White" Height="25"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="54,450,38,90">
-            <StackPanel Width="373" Height="240" RenderTransformOrigin="0.516,0.646">
-                <TextBlock Text="Basic Subscription" FontSize="18" FontWeight="Bold" Foreground="White" Width="154"/>
-                <Button Click="basicSubscriptionButton_Click" x:Name="basicSubscriptionButton" Background="White" Width="250" Height="210" BorderThickness="0">
-                    <TextBlock Text="Empower Your Reach: 2 Campaigns/Years, Targeting 25000 Users, Only $250!" 
-            TextAlignment="Center" 
-            TextWrapping="Wrap" 
-            TextTrimming="WordEllipsis" 
-            Foreground="Black"
-            FontSize="30" Height="214" Width="240"/>
+
+        <!-- Subscriptions buttons -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+            <StackPanel Width="190">
+                <TextBlock Text="Basic Subscription" FontSize="16" FontWeight="Bold" Foreground="White" Width="136"/>
+                <Button Click="basicSubscriptionButton_Click" x:Name="basicSubscriptionButton" Background="White" Width="169" Height="127" BorderThickness="0">
+                    <TextBlock Text="Empower Your Reach: 2 Campaigns/Year, Targeting 25000 Users, Only $250!" 
+                               TextAlignment="Center" 
+                               TextWrapping="Wrap" 
+                               TextTrimming="WordEllipsis" 
+                               Foreground="Black"
+                               FontSize="18" Width="174"/>
                 </Button>
-
-
             </StackPanel>
-            <StackPanel Width="409" Height="243">
-                <TextBlock Text="Silver Subscription" FontSize="18" FontWeight="Bold" Foreground="White" Width="158"/>
-                <Button Click="silverSubscriptionButton_Click" x:Name="silverSubscriptionButton" Background="White" Width="250" Height="210" BorderThickness="0">
+            <StackPanel Width="190">
+                <TextBlock Text="Silver Subscription" FontSize="16" FontWeight="Bold" Foreground="White" Width="141"/>
+                <Button Click="silverSubscriptionButton_Click" x:Name="silverSubscriptionButton" Background="White" Width="175" Height="129" BorderThickness="0">
                     <TextBlock Text="Unlock Boundless Growth: 3 Annual Campaigns, Reaching 50000 Users, Just $350!" 
-TextAlignment="Center" 
-TextWrapping="Wrap" 
-TextTrimming="WordEllipsis" 
-Foreground="Black"
-FontSize="30" Height="224" Width="240"/>
+                               TextAlignment="Center" 
+                               TextWrapping="Wrap" 
+                               TextTrimming="WordEllipsis" 
+                               Foreground="Black"
+                               FontSize="18"/>
                 </Button>
-
-
             </StackPanel>
-            <StackPanel Width="350" Height="244">
-                <TextBlock Text="Gold Subscription" FontSize="18" FontWeight="Bold" Foreground="White" Width="151"/>
-                <Button Click="goldSubscriptionButton_Click" x:Name="goldSubscriptionButton" Background="White" Width="250" Height="210" BorderThickness="0">
-                    <TextBlock Text="Experience Elite Engagement: 5 Campaigns/Years, Reaching 100000 Users, Only $500!" 
-TextAlignment="Center" 
-TextWrapping="Wrap" 
-TextTrimming="WordEllipsis" 
-Foreground="Black"
-FontSize="30" Height="200" Width="240"/>
+            <StackPanel Width="190">
+                <TextBlock Text="Gold Subscription" FontSize="16" FontWeight="Bold" Foreground="White" Width="136"/>
+                <Button Click="goldSubscriptionButton_Click" x:Name="goldSubscriptionButton" Background="White" Width="166" Height="129" BorderThickness="0">
+                    <TextBlock Text="Experience Elite Engagement: 5 Campaigns/Year, Reaching 100000 Users, Only $500!" 
+                               TextAlignment="Center" 
+                               TextWrapping="Wrap" 
+                               TextTrimming="WordEllipsis" 
+                               Foreground="Black"
+                               FontSize="18"/>
                 </Button>
-
-
             </StackPanel>
-
         </StackPanel>
     </Grid>
 </UserControl>
