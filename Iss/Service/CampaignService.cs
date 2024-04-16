@@ -23,5 +23,10 @@ namespace Iss.Service
                 campaignRepository.addAdSetToCampaign(campaign, adSet);
             }
         }
+
+        public Campaign getCampaignByName(Campaign campaign)
+        {
+            return campaignRepository.getCampaignByName(campaign);
+        }
     }
 }

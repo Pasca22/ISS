@@ -224,5 +224,14 @@ namespace Iss.Windows
             }
 
         }
+
+        private void Campaign_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = new CampaignDetails((Campaign)Campaigns.SelectedItem);
+            }
+        }
     }
 }

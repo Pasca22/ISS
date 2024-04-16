@@ -61,7 +61,7 @@
                         <Button Name="searchCampaign" Content="Search" Width="50" Height="20" Margin="2,0,0,0" Foreground="Black" Background="{x:Null}" BorderBrush="Purple" Click="searchCampaign_Click"/>
                     </StackPanel>
                     <TextBlock Text="Campaigns" Width="250" HorizontalAlignment="Left"/>
-                    <ListBox Name="Campaigns"  Width="250" Height="150" Background="White" BorderBrush="Purple" BorderThickness="1" HorizontalAlignment="Left"/>
+                    <ListBox SelectionChanged="Campaign_SelectionChanged" Name="Campaigns"  Width="250" Height="150" Background="White" BorderBrush="Purple" BorderThickness="1" HorizontalAlignment="Left"/>
                     <Button Name="AddCampaign" Content="Add Campaign" Width="250" Margin="0,10,0,0" Background="#800080" Foreground="White" Click="AddCampaign_Click"/>
                 </StackPanel>
             </StackPanel>
