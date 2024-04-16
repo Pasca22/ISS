@@ -28,5 +28,25 @@ namespace Iss.Service
         {
             return campaignRepository.getCampaignByName(campaign);
         }
+
+        public void deleteCampaign(Campaign campaign)
+        {
+            campaignRepository.deleteCampaign(campaign);
+        }
+
+        public void addAdSetToCampaign(Campaign campaign, AdSet adSet)
+        {
+            campaignRepository.addAdSetToCampaign(campaign, adSet);
+        }
+
+        public void deleteAdSetFromCampaign(Campaign campaign, AdSet adSet)
+        {
+            campaignRepository.deleteAdSetFromCampaign(campaign, adSet);
+        }
+
+        public void updateCampaign(Campaign campaign)
+        {
+            campaignRepository.updateCampaign(campaign);
+        }
     }
 }

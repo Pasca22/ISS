@@ -11,7 +11,7 @@
             <Style x:Key="RoundCornerButton" TargetType="Button">
                 <Setter Property="Height" Value="40"/>
                 <Setter Property="Width" Value="250"/>
-                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontSize" Value="13"/>
                 <Setter Property="Margin" Value="10"/>
                 <Setter Property="BorderBrush" Value="Purple"/>
                 <Setter Property="BorderThickness" Value="1"/>
@@ -21,11 +21,18 @@
             </Style>
         </Grid.Resources>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Campaign Details" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" Click="HomeButton_Click">
+                </Button>
+                <Button Content="Account Overview" Width="100" HorizontalAlignment="Left" Margin="5" Click="AccountButton_Click">
+                </Button>
+                <TextBlock Text="Campaign Details" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="110,0,0,0"></TextBlock>
+                
+            </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <StackPanel>
                     <TextBlock Text="Current Ad Sets"></TextBlock>
-                    <ListBox x:Name="itemListBox1" Width="350" Height="150" Margin="10" SelectionMode="Multiple" SelectionChanged="ListBox1_SelectionChanged">
+                    <ListBox x:Name="itemListBox1" Width="350" Height="150" Margin="7" SelectionMode="Multiple" SelectionChanged="ListBox1_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -49,7 +56,7 @@
                 </StackPanel>
                 <StackPanel>
                     <TextBlock Text="Available Ad Sets"></TextBlock>
-                    <ListBox x:Name="itemListBox2" Width="350" Height="150" Margin="10" SelectionMode="Multiple" SelectionChanged="ListBox2_SelectionChanged">
+                    <ListBox x:Name="itemListBox2" Width="350" Height="150" Margin="7" SelectionMode="Multiple" SelectionChanged="ListBox2_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -76,7 +83,7 @@
 
         </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center">
-                <StackPanel>
+                <StackPanel Margin="10,0,0,0">
                     <TextBlock Text="Name:" FontSize="14" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
                 <TextBox x:Name="nameTextBox" Width="200" Margin="0,0,0,10"/>
                 <TextBlock Text="Duration in days (7-30 days)" FontSize="14" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
@@ -85,11 +92,11 @@
                 <Calendar x:Name="startDatePicker" SelectionMode="SingleRange" Margin="200,0,0,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="sumbitAdButton" Content="Submit Ad" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
-HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,0,0"
+                <Button x:Name="updateButton" Content="Update" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
+HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,0,0" Click="updateBtn_Click"
  Style="{StaticResource RoundCornerButton}"/>
-                <Button x:Name="sumbitAdButton1" Content="Submit Ad" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
-HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70,0,0,0"
+                <Button x:Name="deleteButton" Content="Delete Campaign" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
+HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70,0,0,0" Click="deleteBtn_Click"
  Style="{StaticResource RoundCornerButton}"/>
             </StackPanel>
         </StackPanel>
