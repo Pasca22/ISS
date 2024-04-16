@@ -201,11 +201,11 @@ namespace Iss.Windows
 
         private void RequestButton_Click(object sender, RoutedEventArgs e)
         {
-             MakeRequest makeRequest = new MakeRequest();
+             SelectInflucencerAndAd selectInflucencerAndAd = new SelectInflucencerAndAd();
              MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
              if (mainWindow != null)
              {
-                 mainWindow.contentContainer.Content = makeRequest;
+                 mainWindow.contentContainer.Content = selectInflucencerAndAd;
              }
         }
 

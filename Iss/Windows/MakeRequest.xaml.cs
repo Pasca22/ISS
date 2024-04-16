@@ -23,9 +23,11 @@ namespace Iss.Windows
     /// </summary>
     public partial class MakeRequest : UserControl
     {
-        public MakeRequest()
+        public MakeRequest(Influencer influencer, Ad selectedAd)
         {
             InitializeComponent();
+            adOverview.Text = selectedAd.description;
+            compensation.Text = influencer.collaborationPrice.ToString();
         }
 
         private void MakeRequestButton_Click(object sender, RoutedEventArgs e)
