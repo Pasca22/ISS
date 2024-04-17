@@ -38,11 +38,12 @@ namespace Iss.Windows
 
         private void NegotiationHistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            NegotiationHistory negotiationHistory = new NegotiationHistory();
+            bool isAdAccount = true;
+            ListOfRequests listOfRequests = new ListOfRequests(isAdAccount);
             MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
-                mainWindow.contentContainer.Content = negotiationHistory;
+                mainWindow.contentContainer.Content = listOfRequests;
             }
         }
 
