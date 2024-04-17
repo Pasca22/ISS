@@ -34,7 +34,7 @@ namespace Iss.Windows
         {
             InitializeComponent();
             this.isAdAccount = isAdAccount;
-            
+
             PopulateRequests();
         }
 
@@ -62,6 +62,27 @@ namespace Iss.Windows
 
             if (requestsListView.SelectedItem != null)
             {
+                Request request = (Request)requestsListView.SelectedItem;
+                Request selectedRequest = requestService.getRequestWithTitle(request.collaborationTitle);
+                RequestDetails requestDetails = new RequestDetails(selectedRequest, isAdAccount);
+                if (isAdAccount)
+                {
+                    MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        mainWindow.contentContainer.Content = requestDetails;
+                    }
+                }
+                else
+                {
+                    InfluencerStart influencerStart = Window.GetWindow(this) as InfluencerStart;
+                    if (influencerStart != null)
+                    {
+                        influencerStart.contentContainer.Content = requestDetails;
+                    }
+                }
+
+
 
             }
             else
@@ -163,7 +184,7 @@ namespace Iss.Windows
                         }
                     }
 
-                    
+
 
                 }
                 catch (Exception ex)
@@ -191,7 +212,7 @@ namespace Iss.Windows
             }
             else
             {
-               HomePage start = new HomePage();
+                HomePage start = new HomePage();
                 Window window = Window.GetWindow(this);
                 if (window != null && window is MainWindow mainWindow)
                 {
