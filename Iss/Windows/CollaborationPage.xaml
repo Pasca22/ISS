@@ -15,7 +15,7 @@
                 <!-- Define the GridView for the ListView -->
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Overview" Width="200" DisplayMemberBinding="{Binding collaborationOverview}" />
+                        <GridViewColumn Header="Overview" Width="200" DisplayMemberBinding="{Binding adOverview}" />
                         <GridViewColumn Header="Fee" Width="200" DisplayMemberBinding="{Binding collaborationFee}" />
                         <GridViewColumn Header="Start Date" Width="100" DisplayMemberBinding="{Binding startDate, StringFormat={}{0:MM/dd/yyyy}}" />
                         <GridViewColumn Header="End Date" Width="100" DisplayMemberBinding="{Binding endDate, StringFormat={}{0:MM/dd/yyyy}}" />
