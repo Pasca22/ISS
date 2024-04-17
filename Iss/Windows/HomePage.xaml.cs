@@ -45,5 +45,16 @@ namespace Iss.Windows
                 mainWindow.contentContainer.Content = negotiationHistory;
             }
         }
+
+        private void editAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditAdAccount editAdAccount = new EditAdAccount();
+            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.contentContainer.Content = editAdAccount;
+            }
+
+        }
     }
 }
