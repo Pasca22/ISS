@@ -38,7 +38,7 @@
             <StackPanel Width="190" Height="137">
                 <TextBlock Text="One Ad Set" FontSize="16" FontWeight="Bold" Foreground="White" Width="87"/>
                 <Button Click="oneAdSetButton_Click" x:Name="oneAdSetButton" Background="White" Width="167" Height="121" BorderThickness="0">
-                    <TextBlock Text="Supercharge Your Reach: Target 7500 Users for Only $18!" 
+                    <TextBlock Text="Supercharge Your Reach: Target 7500 Users for Only $20!" 
                                TextAlignment="Center" 
                                TextWrapping="Wrap" 
                                TextTrimming="WordEllipsis" 

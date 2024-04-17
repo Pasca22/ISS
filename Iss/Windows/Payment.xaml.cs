@@ -20,9 +20,48 @@ namespace Iss.Windows
     /// </summary>
     public partial class Payment : UserControl
     {
-        public Payment()
+        int totalAmounttotalAmountToPay { get; set;}
+        public Payment(int totalAmountToPay)
         {
             InitializeComponent();
+            this.totalAmounttotalAmountToPay = totalAmountToPay;
+            crazyPaymentSelection.SetValue(ComboBox.ItemsSourceProperty, Constants.CRAZY_PAYMENTS.Keys);
+            crazyPaymentSelection.SelectedIndex = 0;
+            
+            textQuantity.Text = "* " + (this.totalAmounttotalAmountToPay / Constants.CRAZY_PAYMENTS["KFC Wings"]).ToString();
+            textAmount.Text = "= " + this.totalAmounttotalAmountToPay.ToString();
+        }
+
+        private void crazyPaymentSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedItem = (string)crazyPaymentSelection.SelectedItem;
+
+            textQuantity.Text = "* " + (this.totalAmounttotalAmountToPay / Constants.CRAZY_PAYMENTS[selectedItem]).ToString();
+            textAmount.Text = "= " + this.totalAmounttotalAmountToPay.ToString();
+        }
+
+        private void sumbitPaymentButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (creditCardOptionButton.IsChecked == false && crazyOptionButton.IsChecked == false)
+            {
+                MessageBox.Show("Please select a payment method!");
+                return;
+            }
+
+            if (creditCardOptionButton.IsChecked == true)
+            {
+                MessageBox.Show("Payment with credit card was successful!");
+            }
+            else
+            {
+                MessageBox.Show("Crazy payment was successful!");
+            }
+
+            Window window = Window.GetWindow(this);
+            if (window != null && window is MainWindow mainWindow)
+            {
+                mainWindow.contentContainer.Content = mainWindow.homePage;
+            }
         }
     }
 }
