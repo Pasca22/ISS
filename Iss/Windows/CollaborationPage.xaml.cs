@@ -96,12 +96,12 @@ namespace Iss.Windows
 
             if (this.isAdAccount) {
 
-                //Statistics statistics = new Statistics();
-                //MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
-                //if (mainWindow != null)
-                //{
-                //    mainWindow.contentContainer.Content = statistics;
-                //}
+                Statistics statistics = new Statistics();
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.contentContainer.Content = statistics;
+                }
 
             }
         }

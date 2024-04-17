@@ -4,10 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-
-    xmlns:charts="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
-  	 xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit"
-
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -24,28 +20,27 @@
             TextAlignment="Center" />
 
         <StackPanel
-            Margin="10,30,420,0"
+            Margin="10,30,10,0"
             VerticalAlignment="Top"
-            Orientation="Vertical">
-            <StackPanel Margin="0,10" Orientation="Horizontal">
+            Orientation="Vertical" Height="370">
+            <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Path
                     Data="M 0 0 L 10 10 L 0 20"
                     Stroke="Black"
                     StrokeThickness="2" />
-                <TextBlock Margin="10,0,0,0" Text="Total Impressions: " />
+                <TextBlock Margin="10,0,0,0" Text="Total Impressions: "/>
                 <TextBox
                     x:Name="TotalImpressionsTextBox"
                     Width="50"
-                    TextChanged="TotalImpressionsTextBox_TextChanged" />
-                <Button Content="Overview" Width="60" Margin="10,0,0,0" Click="TotalImpressionsOverviewButton_Click"/>
-                <Button Content="Prediction" Width="60" Margin="10,0,0,0" Click="TotalImpressionsPredictionButton_Click"/>
+                     />
+                
 
             </StackPanel>
             <TextBlock
                 Margin="20,0,0,0"
                 Text="The overall number of times influencer-promoted content was displayed to users across the entire platform."
                 TextWrapping="Wrap" />
-            <StackPanel Margin="0,10" Orientation="Horizontal" Width="337">
+            <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Path
                     Data="M 0 0 L 10 10 L 0 20"
                     Stroke="Black"
@@ -54,15 +49,14 @@
                 <TextBox
                     x:Name="TotalLikesTextBox"
                     Width="50"
-                    TextChanged="TotalLikesTextBox_TextChanged" />
-                <Button Content="Overview" Width="60" Margin="10,0,0,0" Click="ClickThroughRateOverviewButton_Click"/>
-                <Button Content="Prediction" Width="60" Margin="10,0,0,0" Click="ClickThroughRatePredictionButton_Click"/>
+                     />
+               
             </StackPanel>
             <TextBlock
                 Margin="20,0,0,0"
                 Text="Likes - The total number of likes received on influencer-promoted ad, indicating audience appreciation and engagement."
                 TextWrapping="Wrap" />
-            <StackPanel Margin="0,10" Orientation="Horizontal">
+            <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Path
                     Data="M 0 0 L 10 10 L 0 20"
                     Stroke="Black"
@@ -71,16 +65,15 @@
                 <TextBox
                     x:Name="SharesTextBox"
                     Width="50"
-                    TextChanged="SharesTextBox_TextChanged" />
-                <Button Content="Overview" Width="80" Margin="10,0,0,0" Click="SharesOverviewButton_Click"/>
-                <Button Content="Prediction" Width="80" Margin="10,0,0,0" Click="SharesPredictionButton_Click"/>
+                     />
+                
             </StackPanel>
             <TextBlock
                 Margin="20,0,0,0"
                 Text="The total number of times influencer-promoted content was shared by users, extending its reach to a broader audience"
                 TextWrapping="Wrap" />
 
-            <StackPanel Margin="0,10" Orientation="Horizontal">
+            <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Path
                     Data="M 0 0 L 10 10 L 0 20"
                     Stroke="Black"
@@ -89,23 +82,17 @@
                 <TextBox
                     x:Name="ClickThroughRateTextBox"
                     Width="50"
-                    TextChanged="ClickThroughRateTextBox_TextChanged" RenderTransformOrigin="0.201,0.589" />
-                <Button Content="Overview" Width="60" Margin="10,0,0,0" Click="ClickThroughRateOverviewButton_Click"/>
-                <Button Content="Prediction" Width="60" Margin="10,0,0,0" Click="ClickThroughRatePredictionButton_Click"/>
+                     RenderTransformOrigin="0.201,0.589" />
+               
             </StackPanel>
             <TextBlock
                 Margin="20,0,0,0"
                 Text="Percentage of users who clicked on the influencer-promoted content relative to the total impressions, indicating the effectiveness of content in driving user engagement."
                 TextWrapping="Wrap" />
+            <Button x:Name="goBack" Content="Go Back" Width="200" Margin="20" Background="Purple" Foreground="White" Click="goBack_Click"/>
         </StackPanel>
-		 <StackPanel x:Name="ChartPanel" Grid.Column="1" Margin="380,30,0,0" VerticalAlignment="Top">
-            <chartingToolkit:Chart x:Name="chart1">
-                <chartingToolkit:Chart.Series>
-                    <chartingToolkit:LineSeries IndependentValuePath="X" DependentValuePath="Y" ItemsSource="{Binding points}"/>
-                </chartingToolkit:Chart.Series>
-            </chartingToolkit:Chart>
-        </StackPanel>
-        
+
+
     </Grid>
 </UserControl>
 
