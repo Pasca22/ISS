@@ -139,8 +139,8 @@ namespace Iss.Windows
             {
                 try
                 {
-                    string collaborationTitle = (string)requestsListView.SelectedItem;
-                    Request selectedRequest = requestService.getRequestWithTitle(collaborationTitle);
+                    Request request = (Request)requestsListView.SelectedItem;
+                    Request selectedRequest = requestService.getRequestWithTitle(request.collaborationTitle);
                     //open negociation page
                     NegotiationPage negociationPage = new NegotiationPage(selectedRequest, isAdAccount);
                     //go to the negociation page
