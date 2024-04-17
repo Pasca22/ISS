@@ -49,5 +49,10 @@ namespace Iss.Service
             }
             return null;
         }
+
+        internal List<Request> getRequestsForAdAccount()
+        {
+            return this.requestRepository.getRequestsForAdAccount();
+        }
     }
 }

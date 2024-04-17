@@ -13,10 +13,10 @@
         <TextBlock Text="New URL site" VerticalAlignment="Top" Margin="355,135,370,0" Foreground="White"/>
         <TextBox x:Name="newURLTextBox" Margin="304,156,300,0" Text="Enter the new company URL link..." Foreground="Gray" VerticalAlignment="Top"/>
         <TextBlock Text="New password" VerticalAlignment="Top" Margin="346,187,370,0" Foreground="White"/>
-        <TextBox x:Name="newPasswordTextBox" Margin="304,217,300,0" Text="Enter the new password..." Foreground="Gray" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="newPasswordTextBox" Margin="304,217,300,0"  Foreground="Gray" VerticalAlignment="Top"/>
         <TextBlock Text="New headquarters location" VerticalAlignment="Top" Margin="323,255,323,0" Foreground="White"/>
         <TextBox x:Name="newLocationTextBox" Margin="304,276,299,0" Text="Enter the new location..." Foreground="Gray" VerticalAlignment="Top"/>
-        <Button x:Name="saveChangesButton" Content="Save changes" HorizontalAlignment="Center" Margin="0,359,0,0" VerticalAlignment="Top" Width="100" Height="29"/>
+        <Button x:Name="saveChangesButton" Content="Save changes" HorizontalAlignment="Center" Margin="0,359,0,0" VerticalAlignment="Top" Width="100" Height="29" Click="saveChangesButton_Click_1"/>
 
     </Grid>
 </UserControl>
