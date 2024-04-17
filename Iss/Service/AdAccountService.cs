@@ -58,5 +58,10 @@ namespace Iss.Service
         {
             this.adAccountRepository.AddAdAccount(account);
         }
+
+        public void editAdAccount(String nameOfCompany, String URL, String password, String location)
+        {
+            this.adAccountRepository.EditAdAccount(nameOfCompany, URL, password, location);
+        }
     }
 }
