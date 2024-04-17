@@ -25,7 +25,7 @@ namespace Iss.Windows
     public partial class ListOfRequests : UserControl
     {
         private RequestService requestService = new RequestService();
-
+        private CollaborationService collaborationService = new CollaborationService();
         public List<Request> requests { get; set; }
         public ListOfRequests()
         {
@@ -71,7 +71,10 @@ namespace Iss.Windows
                     Request selectedRequest = requestService.getRequestWithTitle(collaborationTitle);
                     selectedRequest.influencerAccept = true;
                     requestService.deleteRequest(selectedRequest);
-                    //fa un nou collaboration
+                    
+                    Collaboration collaboration = new Collaboration(collaborationTitle, selectedRequest.adOverview, selectedRequest.compensation, selectedRequest.contentRequirements, DateTime.Parse(selectedRequest.startDate), DateTime.Parse(selectedRequest.endDate), true);
+                  
+                    collaborationService.addCollaboration(collaboration);
                     MessageBox.Show("Request accepted. A new collaboration was created!");
                 }
                 catch (Exception ex)
