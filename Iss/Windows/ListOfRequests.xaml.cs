@@ -180,11 +180,23 @@ namespace Iss.Windows
 
         private void StartPageButton_Click(object sender, RoutedEventArgs e)
         {
-            InfluencerStart start = new InfluencerStart();
-            InfluencerStart influencerStart = Window.GetWindow(this) as InfluencerStart;
-            if (influencerStart != null)
+            if (!isAdAccount)
             {
-                influencerStart.contentContainer.Content = start.Content;
+                InfluencerStart start = new InfluencerStart();
+                InfluencerStart influencerStart = Window.GetWindow(this) as InfluencerStart;
+                if (influencerStart != null)
+                {
+                    influencerStart.contentContainer.Content = start.Content;
+                }
+            }
+            else
+            {
+               HomePage start = new HomePage();
+                Window window = Window.GetWindow(this);
+                if (window != null && window is MainWindow mainWindow)
+                {
+                    mainWindow.contentContainer.Content = mainWindow.homePage;
+                }
             }
         }
     }
