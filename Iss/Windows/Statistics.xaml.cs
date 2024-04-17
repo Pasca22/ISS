@@ -18,18 +18,31 @@ namespace Iss.Windows
         public Statistics()
         {
             InitializeComponent();
+            Initialize();
+        }
+        public void Initialize()
+        {
+            // Set the text of the TextBox to the sum
+            int sum=SatisticsService.GenerateSum(SatisticsService.firstTotalImpressionsPrediction); // Generate the sum of the first prediction
+
+            TotalImpressionsTextBox.Text = sum.ToString();
+            int sum1=SatisticsService.GenerateSum(SatisticsService.firstLikesPrediction); // Generate the sum of the first prediction
+            TotalLikesTextBox.Text = sum1.ToString();
+            int sum2=SatisticsService.GenerateSum(SatisticsService.firstClickThroughRatePrediction); // Generate the sum of the first prediction
+            ClickThroughRateTextBox.Text = sum2.ToString();
+            int sum3=SatisticsService.GenerateSum(SatisticsService.firstSharesPrediction); // Generate the sum of the first prediction
+            SharesTextBox.Text = sum3.ToString();
+            
         }
 
         private void SharesTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        { TextBox textBox = sender as TextBox;
+        { //populate text box
+            TextBox textBox = sender as TextBox;
             
             if (textBox != null)
-            {
-                // Assuming you have a list of generated numbers, let's call it "generatedNumbersList"
-                
-                int sum=SatisticsService.GenerateSum(SatisticsService.firstSharesPrediction); // Generate the sum of the first prediction
-                
-                textBox.Text = sum.ToString(); // Set the text of the TextBox to the sum
+            {   int sum=SatisticsService.GenerateSum(SatisticsService.firstTotalImpressionsPrediction); // Generate the sum of the first prediction
+
+                textBox.Text = sum.ToString();
             }
             
         }
