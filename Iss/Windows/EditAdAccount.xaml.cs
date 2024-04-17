@@ -34,6 +34,8 @@ namespace Iss.Windows
             string password = newPasswordTextBox.Password;
             string location = newLocationTextBox.Text;
             adAccountService.editAdAccount(nameOfCompany, URL, password, location);
+            User.User.getInstance().Name = nameOfCompany;
+            User.User.getInstance().Password = password;
             MessageBox.Show("Changes saved successfully!");
             AdAccountOverview accountOverview = new AdAccountOverview();
             MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
