@@ -6,10 +6,10 @@
     xmlns:local="clr-namespace:Iss.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:charts="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+	 xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <!--xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit" -->
     <Grid Margin="20,20,20,20" Background="White">
         <TextBlock
             Width="760"
@@ -97,13 +97,14 @@
                 Text="Percentage of users who clicked on the influencer-promoted content relative to the total impressions, indicating the effectiveness of content in driving user engagement."
                 TextWrapping="Wrap" />
         </StackPanel>
-        <StackPanel>
-         <!--   <chartingToolkit:Chart x:Name="chart1">
+		 <StackPanel x:Name="ChartPanel" Grid.Column="1" Margin="380,30,0,0" VerticalAlignment="Top">
+            <chartingToolkit:Chart x:Name="chart1">
                 <chartingToolkit:Chart.Series>
                     <chartingToolkit:LineSeries IndependentValuePath="X" DependentValuePath="Y" ItemsSource="{Binding points}"/>
                 </chartingToolkit:Chart.Series>
-            </chartingToolkit:Chart> -->
+            </chartingToolkit:Chart>
         </StackPanel>
+        
     </Grid>
 </UserControl>
 

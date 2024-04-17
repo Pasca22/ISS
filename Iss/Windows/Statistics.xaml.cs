@@ -93,36 +93,42 @@ namespace Iss.Windows
                 
                 textBox.Text = sum.ToString(); // Set the text of the TextBox to the sum
             }
-            
+
 
         }
 
         private void ClickThroughRateOverviewButton_Click(object sender, RoutedEventArgs e)
         {
-           // int firstPrediction = SatisticsService.GetFirstClickThroughRatePrediction();
+            int firstPrediction = SatisticsService.GetFirstClickThroughRatePrediction();
 
             // Generate numbers around the prediction for a week (7 days)
-           // List<int> generatedNumbers = SatisticsService.GenerateNumbersAroundPrediction(firstPrediction);
+            List<int> generatedNumbers = SatisticsService.GenerateNumbersAroundPrediction(firstPrediction);
 
             // Create a new chart
-            //Chart chart = new Chart();
-            //LineSeries series = new LineSeries();
-            //PointCollection pc = new PointCollection();
-            //series.Title = "Click Through Rate Trend";
+            Chart chart = new Chart();
+            LineSeries series = new LineSeries();
+            PointCollection pc = new PointCollection();
+            series.Title = "Click Through Rate Trend";
 
+            // Add data points to the series
+            for (int i = 0; i < generatedNumbers.Count; i++)
+            {
+                pc.Add(new System.Windows.Point { X = i + 1, Y = generatedNumbers[i] });
+            }
 
-            //for (int i = 0; i < generatedNumbers.Count; i++)
-            //{
-                
-             
-             //   pc.Add(new System.Windows.Point { X = i+1, Y = generatedNumbers[i]});
-                
-            //}
+            // Set the series item source
+            series.ItemsSource = pc;
 
-            //chart.DataContext = new { points = pc };
-            throw new NotImplementedException();
-            
+            // Add series to the chart
+            chart.Series.Add(series);
+
+            // Set chart's data context
+            chart.DataContext = this;
+
+            // Add chart to the existing StackPanel
+            ChartPanel.Children.Add(chart);
         }
+
 
         private void ClickThroughRatePredictionButton_Click(object sender, RoutedEventArgs e)
         {
