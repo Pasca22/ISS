@@ -52,12 +52,12 @@ namespace Iss.Windows
                 string compensationString = compensation.Text;
                 //get the selected dates from the calendar
                 DateTime startDate = calendar.SelectedDates[0];
-                string startDateString = startDate.ToString("yyyy-MM-dd");
                 DateTime endDate = calendar.SelectedDates[calendar.SelectedDates.Count - 1];
-                string endDateString = endDate.ToString("yyyy-MM-dd");
 
                 // Create new Request object
-                Request request = new Request(collaborationTitleString, adOverviewString, contentRequirementsString, compensationString, startDateString, endDateString,false);
+                bool influencerAccept = false;
+                bool adAccountAccept = true;
+                Request request = new Request(collaborationTitleString, adOverviewString, contentRequirementsString, compensationString,startDate,endDate, influencerAccept, adAccountAccept);
 
                 //Add the request using RequestService
                

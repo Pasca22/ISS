@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Iss.Entity
 {
-    public class Request(string collaborationTitle, string adOverview, string contentRequirements, string compensation,string startDate, string endDate,bool influencerAccept)
+    public class Request(string collaborationTitle, string adOverview, string contentRequirements, string compensation, DateTime startDate, DateTime endDate,bool influencerAccept, bool adAccountAccept)
     {
         public string collaborationTitle { get; set; } = collaborationTitle;
         public string adOverview { get; set; } = adOverview;
         public string contentRequirements { get; set; } = contentRequirements;
         public string compensation { get; set; } = compensation;
-        public string startDate { get; set; } = startDate;
-        public string endDate { get; set; } = endDate;
+        public DateTime startDate { get; set; } = startDate;
+        public DateTime endDate { get; set; } = endDate;
 
         public bool influencerAccept { get; set; } = influencerAccept;
+        public bool adAccountAccept { get; set; } = adAccountAccept;
     }
 }
