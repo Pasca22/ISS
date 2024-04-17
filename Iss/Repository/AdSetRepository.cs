@@ -102,8 +102,9 @@ namespace Iss.Repository
             List<AdSet> adSets = new List<AdSet>();
             DataSet dataSet = new DataSet();
             DatabaseConnection.OpenConnection();
-            string query = "SELECT * FROM AdSet WHERE CampaignID IS NULL";
+            string query = "SELECT * FROM AdSet WHERE CampaignID IS NULL AND AdAccountID=@id";
             SqlCommand command = new SqlCommand(query, DatabaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@id", User.User.getInstance().Id);
             adapter.SelectCommand = command;
             adapter.SelectCommand.ExecuteNonQuery();
             adapter.Fill(dataSet);

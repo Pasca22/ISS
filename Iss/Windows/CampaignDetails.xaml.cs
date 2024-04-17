@@ -77,6 +77,12 @@ namespace Iss.Windows
                 MessageBox.Show("Please select at least one item from the first list!");
                 return; // Exit the method without performing the update
             }
+
+            if (itemListBox1.Items.Count == 0)
+            {
+                MessageBox.Show("Please select at most 10 ad sets!");
+                return; // Exit the method without performing the update
+            }
             if (startDatePicker.SelectedDate == null)
             {
                 MessageBox.Show("Please select a start date!");
