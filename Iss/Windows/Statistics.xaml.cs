@@ -99,27 +99,28 @@ namespace Iss.Windows
 
         private void ClickThroughRateOverviewButton_Click(object sender, RoutedEventArgs e)
         {
-            int firstPrediction = SatisticsService.GetFirstClickThroughRatePrediction();
+           // int firstPrediction = SatisticsService.GetFirstClickThroughRatePrediction();
 
             // Generate numbers around the prediction for a week (7 days)
-            List<int> generatedNumbers = SatisticsService.GenerateNumbersAroundPrediction(firstPrediction);
+           // List<int> generatedNumbers = SatisticsService.GenerateNumbersAroundPrediction(firstPrediction);
 
             // Create a new chart
-            Chart chart = new Chart();
-            LineSeries series = new LineSeries();
-            PointCollection pc = new PointCollection();
-            series.Title = "Click Through Rate Trend";
+            //Chart chart = new Chart();
+            //LineSeries series = new LineSeries();
+            //PointCollection pc = new PointCollection();
+            //series.Title = "Click Through Rate Trend";
 
 
-            for (int i = 0; i < generatedNumbers.Count; i++)
-            {
+            //for (int i = 0; i < generatedNumbers.Count; i++)
+            //{
                 
              
-                pc.Add(new System.Windows.Point { X = i+1, Y = generatedNumbers[i]});
+             //   pc.Add(new System.Windows.Point { X = i+1, Y = generatedNumbers[i]});
                 
-            }
+            //}
 
-            chart.DataContext = new { points = pc };
+            //chart.DataContext = new { points = pc };
+            throw new NotImplementedException();
             
         }
 
