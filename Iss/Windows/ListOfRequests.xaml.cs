@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Iss.Service;
 using System.Collections.Specialized;
+using System.Collections;
 
 namespace Iss.Windows
 {
@@ -26,7 +27,7 @@ namespace Iss.Windows
     {
         private RequestService requestService = new RequestService();
         private CollaborationService collaborationService = new CollaborationService();
-        
+
         public List<Request> requests { get; set; }
         private bool isAdAccount;
         public ListOfRequests(bool isAdAccount)
@@ -38,7 +39,7 @@ namespace Iss.Windows
 
         private void PopulateRequests()
         {
-            if(isAdAccount)
+            if (isAdAccount)
             {
                 // Get requests for the current user
                 requests = requestService.getRequestsForAdAccount();
@@ -49,11 +50,8 @@ namespace Iss.Windows
                 requests = requestService.getRequestsForInfluencer();
             }
 
-            requestsListView.Items.Clear();
-            foreach (var request in requests)
-            {
-                requestsListView.Items.Add(request.collaborationTitle);
-            }
+            requestsListView.SetValue(ItemsControl.ItemsSourceProperty, requests);
+
 
 
         }
@@ -78,15 +76,17 @@ namespace Iss.Windows
 
                 try
                 {
-                    string collaborationTitle = (string)requestsListView.SelectedItem;
-                    Request selectedRequest = requestService.getRequestWithTitle(collaborationTitle);
+                    Request request = (Request)requestsListView.SelectedItem;
+                    Request selectedRequest = requestService.getRequestWithTitle(request.collaborationTitle);
                     selectedRequest.influencerAccept = true;
                     requestService.deleteRequest(selectedRequest);
-                    
-                    Collaboration collaboration = new Collaboration(collaborationTitle, selectedRequest.adOverview, selectedRequest.compensation, selectedRequest.contentRequirements, selectedRequest.startDate, selectedRequest.endDate, true);
-                  
+
+
+                    Collaboration collaboration = new Collaboration(request.collaborationTitle, selectedRequest.adOverview, selectedRequest.compensation, selectedRequest.contentRequirements, selectedRequest.startDate, selectedRequest.endDate, true);
+
                     collaborationService.addCollaboration(collaboration);
                     MessageBox.Show("Request accepted. A new collaboration was created!");
+                    this.Content = new ListOfRequests(this.isAdAccount);
                 }
                 catch (Exception ex)
                 {
@@ -108,11 +108,17 @@ namespace Iss.Windows
             {
                 try
                 {
-                    string collaborationTitle = (string)requestsListView.SelectedItem;
-                    Request selectedRequest = requestService.getRequestWithTitle(collaborationTitle);
+                    Request request = (Request)requestsListView.SelectedItem;
+                    Request selectedRequest = requestService.getRequestWithTitle(request.collaborationTitle);
                     selectedRequest.influencerAccept = false;
                     requestService.deleteRequest(selectedRequest);
                     MessageBox.Show("Request declined. The request was deleted!");
+                    this.Content = new ListOfRequests(this.isAdAccount);
+
+                    //requestsListView.ItemsSource = null;
+                    //requestsListView.ItemsSource = requests;
+
+
                 }
                 catch (Exception ex)
                 {
@@ -152,19 +158,12 @@ namespace Iss.Windows
 
         private void StartPageButton_Click(object sender, RoutedEventArgs e)
         {
-
-            //Go back to the influencer start window as main window
-            //Reverse the changes made here
-            /*
-             ListOfRequests listOfRequests = new ListOfRequests();
-             InfluencerStart mainWindow = Window.GetWindow(this) as InfluencerStart;
-             if (mainWindow != null)
-             {
-                 mainWindow.contentContainer.Content = listOfRequests;
-             }
-             */
-
-
+            InfluencerStart start = new InfluencerStart();
+            InfluencerStart influencerStart = Window.GetWindow(this) as InfluencerStart;
+            if (influencerStart != null)
+            {
+                influencerStart.contentContainer.Content = start.Content;
+            }
         }
     }
 }

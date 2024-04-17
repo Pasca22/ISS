@@ -17,5 +17,12 @@ namespace Iss.Entity
 
         public bool influencerAccept { get; set; } = influencerAccept;
         public bool adAccountAccept { get; set; } = adAccountAccept;
+
+
+        public override string ToString()
+        {
+            return this.collaborationTitle;
+        }
+
     }
 }

@@ -26,7 +26,7 @@ namespace Iss.Repository
             // Execute the query to get the influencer ID
             int influencerId = Convert.ToInt32(influencerCommand.ExecuteScalar());
 
-            string query = @"INSERT INTO Collaboration (AdAccountID, InfluencerID, Status, AdOverview, CollaborationTitle, ContentRequirements, CollaborationFee,  StarDate, EndDate) 
+            string query = @"INSERT INTO Collaboration (AdAccountID, InfluencerID, Status, AdOverview, CollaborationTitle, ContentRequirements, CollaborationFee,  StartDate, EndDate) 
                                 VALUES (@AdAccountID, @InfluencerID, @Status, @AdOverview, @CollaborationTitle, @ContentRequirements, @CollaborationFee, @StartDate, @EndDate)";
 
             SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);

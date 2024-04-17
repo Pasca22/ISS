@@ -78,7 +78,12 @@ namespace Iss.Windows
             }
             else
             {
-                //TODO: here should be the logic for the influencer to go back to the influencer start page
+                InfluencerStart influencerStart = new InfluencerStart();
+                InfluencerStart mainWindow = Window.GetWindow(this) as InfluencerStart;
+                if (mainWindow != null)
+                {
+                    mainWindow.contentContainer.Content = influencerStart.Content;
+                }
 
             }
         }
