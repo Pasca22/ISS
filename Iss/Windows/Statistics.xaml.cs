@@ -1,31 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Iss.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Controls.DataVisualization.Charting.Compatible;
-using System.Windows.Media;
-using Iss.Service;
-using GrapeCity.DataVisualization;
-using System.Windows.Forms.DataVisualization;
-using System.Windows.Forms.DataVisualization.Charting;
 using Chart = System.Windows.Controls.DataVisualization.Charting.Chart;
-using Series = System.Windows.Controls.DataVisualization.Charting.Series;
 
 namespace Iss.Windows
 {
