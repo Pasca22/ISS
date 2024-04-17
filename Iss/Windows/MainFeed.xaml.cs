@@ -12,17 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Iss.Entity;
+using Iss.User;
 
 namespace Iss.Windows
 {
     /// <summary>
     /// Interaction logic for MainFeed.xaml
     /// </summary>
-    public partial class MainFeed : Page
+    public partial class MainFeed : UserControl
     {
-        public MainFeed()
+        private Ad ad;
+        public MainFeed(Ad ad)
         {
             InitializeComponent();
+            this.ad = ad;
+            populate();
+        }
+
+        private void populate()
+        {
+            desctiptionTextBox.Text = ad.description;
+            productTitleTextBox.Text = ad.productName;
+            firmaTextBox.Text = User.User.getInstance().Name;
         }
 
         private void PreviousImageButtonClick(object sender, RoutedEventArgs e)

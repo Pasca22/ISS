@@ -65,6 +65,7 @@ namespace Iss.Windows
                 string link = textLink.Text;
                 
                 Ad oldAd = this.adService.getAdByName(ad.productName);
+                ad = oldAd;
 
                 // Create Ad object
                 Ad newAd = new Ad
@@ -149,6 +150,12 @@ namespace Iss.Windows
         {
             AdAccountOverview adAccountOverview = new AdAccountOverview();
             this.Content = adAccountOverview;
+        }
+
+        private void previewAdBtn_Click(Object sender, RoutedEventArgs e)
+        {
+            MainFeed mainFeed = new MainFeed(ad);
+            this.Content = mainFeed;
         }
 
     }
