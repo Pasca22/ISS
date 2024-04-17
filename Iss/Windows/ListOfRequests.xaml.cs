@@ -33,8 +33,9 @@ namespace Iss.Windows
         public ListOfRequests(bool isAdAccount)
         {
             InitializeComponent();
-            PopulateRequests();
             this.isAdAccount = isAdAccount;
+            
+            PopulateRequests();
         }
 
         private void PopulateRequests()
@@ -141,14 +142,28 @@ namespace Iss.Windows
                 {
                     Request request = (Request)requestsListView.SelectedItem;
                     Request selectedRequest = requestService.getRequestWithTitle(request.collaborationTitle);
-                    //open negociation page
+
                     NegotiationPage negociationPage = new NegotiationPage(selectedRequest, isAdAccount);
-                    //go to the negociation page
-                    InfluencerStart mainWindow = Window.GetWindow(this) as InfluencerStart;
-                    if (mainWindow != null)
+
+                    if (isAdAccount)
                     {
-                        mainWindow.contentContainer.Content = negociationPage;
+                        negociationPage = new NegotiationPage(selectedRequest, true);
+                        MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                        if (mainWindow != null)
+                        {
+                            mainWindow.contentContainer.Content = negociationPage;
+                        }
                     }
+                    else
+                    {
+                        InfluencerStart influencerStart = Window.GetWindow(this) as InfluencerStart;
+                        if (influencerStart != null)
+                        {
+                            influencerStart.contentContainer.Content = negociationPage;
+                        }
+                    }
+
+                    
 
                 }
                 catch (Exception ex)

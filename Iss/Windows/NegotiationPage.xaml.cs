@@ -27,9 +27,10 @@ namespace Iss.Windows
         public NegotiationPage(Request request, bool isAddAccount)
         {
             this.request = request;
+            this.isAddAccount = isAddAccount;
             InitializeComponent();
             populateFields();
-            this.isAddAccount = isAddAccount;
+            
         }
 
         public void populateFields (){

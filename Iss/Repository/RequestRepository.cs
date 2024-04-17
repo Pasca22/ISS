@@ -75,7 +75,7 @@ namespace Iss.Repository
                 using (SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection))
                 {
                     command.Parameters.AddWithValue("@influencerId", this.influencerId);
-                    command.Parameters.AddWithValue("@influenceraccept", false);
+                    command.Parameters.AddWithValue("@influenceraccept", 0);
                     databaseConnection.OpenConnection();
 
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -143,7 +143,7 @@ namespace Iss.Repository
                 using (SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection))
                 {
                     command.Parameters.AddWithValue("@adAccountId", User.User.getInstance().Id);
-                    command.Parameters.AddWithValue("@adAccountAccept", false);
+                    command.Parameters.AddWithValue("@adAccountAccept", 0);
                     databaseConnection.OpenConnection();
 
                     using (SqlDataReader reader = command.ExecuteReader())
