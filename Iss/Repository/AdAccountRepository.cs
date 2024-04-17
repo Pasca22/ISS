@@ -126,5 +126,18 @@ namespace Iss.Repository
             databaseConnection.CloseConnection();
             return campaigns;   
         }
+        public void EditAdAccount(String nameOfCompany, String URL, String password, String location)
+        {
+            databaseConnection.OpenConnection();
+            string query = "UPDATE AdAccount SET NameOfCompany = @nameOfCompany, WebSiteUrl = @webSiteUrl, Password = @password, HeadquartersLocation = @headquartersLocation WHERE ID = @id";
+            SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@nameOfCompany", nameOfCompany);
+            command.Parameters.AddWithValue("@webSiteUrl", URL);
+            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@headquartersLocation", location);
+            command.Parameters.AddWithValue("@id", User.User.getInstance().Id);
+            command.ExecuteNonQuery();
+            databaseConnection.CloseConnection();
+        }
     }
 }
