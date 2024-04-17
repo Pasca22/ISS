@@ -32,6 +32,11 @@ namespace Iss.Windows
         private void createCampaignButton_Click(object sender, RoutedEventArgs e)
         {
             List<AdSet> adSets = new List<AdSet>();
+            if (itemListBox.Items.Count == 0)
+            {
+                MessageBox.Show("Please select at least one ad set!");
+                return; // Exit the method without performing the update
+            }
             foreach (AdSet adSet in itemListBox.SelectedItems)
             {
                 adSets.Add(adSet);

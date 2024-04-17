@@ -34,6 +34,11 @@ namespace Iss.Windows
         private void createAdSetButton_Click(object sender, RoutedEventArgs e)
         {
             List<Ad> ads = new List<Ad>();
+            if (itemListBox.Items.Count == 0)
+            {
+                MessageBox.Show("Please select at least one ad!");
+                return; // Exit the method without performing the update
+            }
             foreach (Ad ad in itemListBox.SelectedItems)
             {
                 ads.Add(ad);

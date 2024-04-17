@@ -69,8 +69,14 @@ namespace Iss.Windows
                 return; // Exit the method without performing the update
             }
 
-            try
+            if (itemListBox1.Items.Count > 5)
             {
+                MessageBox.Show("You can select a maximum of 5 ads");
+                return; // Exit the method without performing the update
+            }
+
+                try
+                {
                 AdSet newAdSet = new AdSet(adSet.id, name, targetAudience);
                 AdSetService.updateAdSet(newAdSet);
                 foreach (Ad ad in itemListBox1.Items)
