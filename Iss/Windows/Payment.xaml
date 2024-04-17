@@ -74,17 +74,17 @@
 
         <StackPanel Grid.Column="2" Grid.Row="1" Margin="50" HorizontalAlignment="Center">
             <TextBlock Text="Select:" Style="{StaticResource PurpleTextBlock}"/>
-            <ComboBox x:Name="crazyPaymentSelection" Style="{StaticResource RoundCornerTextBox}">
-                <ComboBoxItem Content="KFC Wings" IsSelected="True"/>
+            <ComboBox x:Name="crazyPaymentSelection" Style="{StaticResource RoundCornerTextBox}" SelectionChanged="crazyPaymentSelection_SelectionChanged">
+                <!--<ComboBoxItem Content="KFC Wings" IsSelected="True"/>
                 <ComboBoxItem Content="Item 2"/>
-                <ComboBoxItem Content="Item 3"/>
+                <ComboBoxItem Content="Item 3"/>-->
             </ComboBox>
 
-            <TextBlock Text="Select:" Style="{StaticResource PurpleTextBlock}"/>
-            <TextBlock x:Name="txtQuantity" Text="* 300" Style="{StaticResource PurpleTextBlock}"/>
+            <!--<TextBlock Text="Select:" Style="{StaticResource PurpleTextBlock}"/>-->
+            <TextBlock x:Name="textQuantity" Text="* 300" Style="{StaticResource PurpleTextBlock}"/>
 
-            <TextBlock Text="Amount:" Style="{StaticResource PurpleTextBlock}"/>
-            <TextBlock x:Name="txtAmount" Text="= 500$" Style="{StaticResource PurpleTextBlock}"/>
+            <!--<TextBlock Text="Amount:" Style="{StaticResource PurpleTextBlock}"/>-->
+            <TextBlock x:Name="textAmount" Text="= 500$" Style="{StaticResource PurpleTextBlock}"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Margin="5" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
@@ -93,6 +93,6 @@
         </StackPanel>
         <Button x:Name="sumbitPaymentButton" Content="Submit Payment" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                 Style="{StaticResource RoundCornerButton}"/>
+                 Style="{StaticResource RoundCornerButton}" Click="sumbitPaymentButton_Click"/>
     </Grid>
 </UserControl>
