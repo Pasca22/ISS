@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using Iss.Entity;
+using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Iss.Entity;
 using System.Windows;
 
 namespace Iss.Repository
@@ -52,7 +46,7 @@ namespace Iss.Repository
             // Execute the query to get the influencer ID
             int influencerId = Convert.ToInt32(influencerCommand.ExecuteScalar());
 
-            string query = "INSERT INTO Request(AdAccountID, InfluencerID, CollaborationTitle, AdOverview, ContentRequirements, CompensationPackage, InfluencerAccept, StartDate, EndDate) VALUES (@AdAccountID, @InfluencerID, @collaborationTitle, @AdOverview, @contentRequirements, @compensation, @influencerAccept, @startDate, @endDate)";
+            string query = "INSERT INTO Request(AdAccountID, InfluencerID, CollaborationTitle, AdOverview, ContentRequirements, CompensationPackage, InfluencerAccept, AdAccountAccept, StartDate, EndDate) VALUES (@AdAccountID, @InfluencerID, @collaborationTitle, @AdOverview, @contentRequirements, @compensation, @influencerAccept, @adAccountAccept, @startDate, @endDate)";
 
             SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
             command.Parameters.AddWithValue("@AdAccountID", User.User.getInstance().Id);
@@ -62,6 +56,7 @@ namespace Iss.Repository
             command.Parameters.AddWithValue("@contentRequirements", request.contentRequirements);
             command.Parameters.AddWithValue("@compensation", request.compensation);
             command.Parameters.AddWithValue("@influencerAccept", request.influencerAccept);
+            command.Parameters.AddWithValue("@adAccountAccept", request.adAccountAccept);
             command.Parameters.AddWithValue("@startDate", request.startDate);
             command.Parameters.AddWithValue("@endDate", request.endDate);
             adapter.InsertCommand = command;
@@ -73,13 +68,14 @@ namespace Iss.Repository
         {
 
             DatabaseConnection databaseConnection = new DatabaseConnection();
-            string query = "SELECT * FROM Request WHERE InfluencerID=@influencerId";
+            string query = "SELECT * FROM Request WHERE InfluencerID=@influencerId AND InfluencerAccept=@influenceraccept";
 
             try
             {
                 using (SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection))
                 {
                     command.Parameters.AddWithValue("@influencerId", this.influencerId);
+                    command.Parameters.AddWithValue("@influenceraccept", false);
                     databaseConnection.OpenConnection();
 
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -93,9 +89,10 @@ namespace Iss.Repository
                                     reader.GetString(reader.GetOrdinal("AdOverview")),
                                     reader.GetString(reader.GetOrdinal("ContentRequirements")),
                                     reader.GetString(reader.GetOrdinal("CompensationPackage")),
-                                    reader.GetString(reader.GetOrdinal("StartDate")),
-                                    reader.GetString(reader.GetOrdinal("EndDate")),
-                                    reader.GetBoolean(reader.GetOrdinal("InfluencerAccept"))
+                                    reader.GetDateTime(reader.GetOrdinal("StartDate")),
+                                    reader.GetDateTime(reader.GetOrdinal("EndDate")),
+                                    reader.GetBoolean(reader.GetOrdinal("InfluencerAccept")),
+                                    reader.GetBoolean(reader.GetOrdinal("AdAccountAccept"))
                                 );
                                 requests.Add(request);
                             }
@@ -134,6 +131,52 @@ namespace Iss.Repository
         public List<Request> getRequestsList()
         {
             return this.requests;
+        }
+
+        internal List<Request> getRequestsForAdAccount()
+        {
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            string query = "SELECT * FROM Request WHERE AdAccountID=@adAccountId AND AdAccountAccept=@adAccountAccept";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection))
+                {
+                    command.Parameters.AddWithValue("@adAccountId", User.User.getInstance().Id);
+                    command.Parameters.AddWithValue("@adAccountAccept", false);
+                    databaseConnection.OpenConnection();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                Request request = new Request(
+                                    reader.GetString(reader.GetOrdinal("CollaborationTitle")),
+                                    reader.GetString(reader.GetOrdinal("AdOverview")),
+                                    reader.GetString(reader.GetOrdinal("ContentRequirements")),
+                                    reader.GetString(reader.GetOrdinal("CompensationPackage")),
+                                    reader.GetDateTime(reader.GetOrdinal("StartDate")),
+                                    reader.GetDateTime(reader.GetOrdinal("EndDate")),
+                                    reader.GetBoolean(reader.GetOrdinal("InfluencerAccept")),
+                                    reader.GetBoolean(reader.GetOrdinal("AdAccountAccept")));
+                                requests.Add(request);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+            finally
+            {
+                databaseConnection.CloseConnection();
+            }
+
+            return requests;
         }
     }
 }

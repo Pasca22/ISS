@@ -25,18 +25,29 @@ namespace Iss.Windows
     public partial class ListOfRequests : UserControl
     {
         private RequestService requestService = new RequestService();
+        private CollaborationService collaborationService = new CollaborationService();
+        private bool isAdAccount;
 
         public List<Request> requests { get; set; }
-        public ListOfRequests()
+        public ListOfRequests(bool isAdAccount)
         {
             InitializeComponent();
             PopulateRequests();
+            this.isAdAccount = isAdAccount;
         }
 
         private void PopulateRequests()
         {
-            // Get requests for the current user
-            requests = requestService.getRequestsForInfluencer();
+            if(isAdAccount)
+            {
+                // Get requests for the current user
+                requests = requestService.getRequestsForAdAccount();
+            }
+            else
+            {
+                // Get requests for the current user
+                requests = requestService.getRequestsForInfluencer();
+            }
 
             requestsListView.Items.Clear();
             foreach (var request in requests)
