@@ -24,7 +24,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-
+            <Button Name="seeStatistics" Content="See Statistics" Width="80" Height="25" HorizontalAlignment="Center" Margin="10"  Background="purple" Foreground="white" Click="SeeStatistics_OnClick" ></Button>
         </StackPanel>
     </Grid>
 </UserControl>

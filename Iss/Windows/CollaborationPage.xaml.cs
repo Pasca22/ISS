@@ -25,6 +25,8 @@ namespace Iss.Windows
     public partial class CollaborationPage : UserControl
     {
         private bool isAdAccount;
+        private CollaborationService collaborationService = new();
+        private List<Collaboration> collaborations = new();
         public CollaborationPage(bool isAdAccount)
         {
             InitializeComponent();
@@ -36,13 +38,14 @@ namespace Iss.Windows
             else
             {
                 populateListView();
+                this.seeStatistics.Visibility = Visibility.Hidden;
             }
         }
 
         public void populateListViewAdAccount()
         {
-            CollaborationService collaborationService = new();
-            List<Collaboration> collaborations = collaborationService.getActiveCollaborationForAdAccount();
+            //CollaborationService collaborationService = new();
+            collaborations = collaborationService.getActiveCollaborationForAdAccount();
 
             foreach (Collaboration collaboration in collaborations)
             {
@@ -54,8 +57,8 @@ namespace Iss.Windows
 
         public void populateListView()
         {
-            CollaborationService collaborationService = new();
-            List<Collaboration> collaborations = collaborationService.getCollaborationForInfluencer();
+            //CollaborationService collaborationService = new();
+            collaborations = collaborationService.getCollaborationForInfluencer();
 
             foreach (Collaboration collaboration in collaborations)
             {
@@ -88,5 +91,19 @@ namespace Iss.Windows
             }
         }
 
+        private void SeeStatistics_OnClick(object sender, RoutedEventArgs e)
+        {
+
+            if (this.isAdAccount) {
+
+                //Statistics statistics = new Statistics();
+                //MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                //if (mainWindow != null)
+                //{
+                //    mainWindow.contentContainer.Content = statistics;
+                //}
+
+            }
+        }
     }
 }
