@@ -18,14 +18,25 @@
         <!-- Main Content -->
         <ScrollViewer Grid.Row="0">
             <StackPanel>
+                
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" Click="HomeButton_Click">
+                    </Button>
+                    <Button Content="Account Overview" Width="100" HorizontalAlignment="Left" Margin="5" Click="AccountButton_Click">
+                    </Button>
+                   
+
+                </StackPanel>
                 <!-- Ad (Main Focus) -->
                 <Border BorderBrush="Gray" BorderThickness="0,0,0,1" Background="#ffffff" Height="319" Width="350">
                     <Grid>
+                        
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
+                        
 
                         <!-- Close Button -->
                         <Button Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,16,16,0" Height="19" Width="18" BorderThickness="1,1,1,1"/>
@@ -48,7 +59,7 @@
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
-                            <Image Source="Images/Ad.png" Width="301"/>
+                            <Image Name="AdImage" Width="301"/>
                             <Button Content="&gt;" Background="Transparent" Width="26" Height="26" BorderBrush="Black" BorderThickness="1">
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
@@ -72,7 +83,7 @@
                             <TextBlock Grid.Column="0" Width="238" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="-201,0,0,0" Name="desctiptionTextBox"/>
 
                             <!-- Button -->
-                            <Button Grid.Column="1" Content="Learn More" HorizontalAlignment="Left" Background="MediumPurple" Foreground="White" Padding="10" Margin="10,0,0,10" Width="81"/>
+                            <Button Grid.Column="1" Content="Learn More" HorizontalAlignment="Left" Background="MediumPurple" Foreground="White" Padding="10" Margin="10,0,0,10" Width="81" Click="loadMoreBtn_Click"/>
                         </Grid>
 
                     </Grid>
