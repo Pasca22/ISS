@@ -178,5 +178,23 @@ namespace Iss.Repository
 
             return requests;
         }
+
+        public void updateRequest(Request request)
+        {
+            //update only compensation, content requirements and acceptance status
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            databaseConnection.OpenConnection();
+            // update the request in the database with the new compensation, content requirements and acceptance status
+            string query = "UPDATE Request SET CompensationPackage=@compensation, ContentRequirements=@contentRequirements, InfluencerAccept=@influencerAccept, AdAccountAccept=@adAccountAccept WHERE CollaborationTitle=@collaborationTitle";
+            SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
+            command.Parameters.AddWithValue("@compensation", request.compensation);
+            command.Parameters.AddWithValue("@contentRequirements", request.contentRequirements);
+            command.Parameters.AddWithValue("@influencerAccept", request.influencerAccept);
+            command.Parameters.AddWithValue("@adAccountAccept", request.adAccountAccept);
+            command.Parameters.AddWithValue("@collaborationTitle", request.collaborationTitle);
+            command.ExecuteNonQuery();
+            databaseConnection.CloseConnection();
+        }
     }
 }

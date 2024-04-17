@@ -50,9 +50,16 @@ namespace Iss.Service
             return null;
         }
 
-        internal List<Request> getRequestsForAdAccount()
+        public List<Request> getRequestsForAdAccount()
         {
             return this.requestRepository.getRequestsForAdAccount();
+        }
+
+        public void updateRequest(Request request, string newCompensation, string newContentRequirements)
+        {
+            request.compensation = newCompensation;
+            request.contentRequirements = newContentRequirements;
+            this.requestRepository.updateRequest(request);
         }
     }
 }

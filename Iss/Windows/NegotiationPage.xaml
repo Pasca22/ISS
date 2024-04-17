@@ -7,22 +7,18 @@
         mc:Ignorable="d" Height="450" Width="800">
     <Grid Background="White">
         <TextBlock Text="Negotiate the collaboration" FontWeight="Bold" FontSize="20" Margin="20,0,-20,0"/>
-        <TextBlock Text="Company Name" VerticalAlignment="Top" Margin="20,40,20,0"/>
-        <TextBox x:Name="companyNameTextBox" Margin="20,61,619,0" Text="Enter company name..." Foreground="Gray" VerticalAlignment="Top"/>
-        <TextBlock Text="Purpose of collaboration" VerticalAlignment="Top" Margin="20,99,20,0"/>
-        <TextBox x:Name="purposeOfCollabTextBox" Margin="20,120,619,0" Text="Enter the purpose..." Foreground="Gray" VerticalAlignment="Top"/>
-        <TextBlock Text="Product Name" VerticalAlignment="Top" Margin="20,164,20,0"/>
-        <TextBox x:Name="productNameTextBox" Margin="20,185,619,0" Text="Enter product name..." Foreground="Gray" VerticalAlignment="Top"/>
-        <TextBlock Text="Product URL" VerticalAlignment="Top" Margin="20,226,20,0"/>
-        <TextBox x:Name="productURLTextBox" Margin="20,247,619,0" Text="Enter product URL..." Foreground="Gray" VerticalAlignment="Top"/>
-        <TextBlock Text="Negotitation Price" VerticalAlignment="Top" Margin="20,291,20,0"/>
-        <TextBox x:Name="oldNegotiationPriceTextBox" Margin="20,312,619,0" Text="Enter negotitation price..." Foreground="Gray" VerticalAlignment="Top"/>
+        <TextBlock Text="Collaboration title" VerticalAlignment="Top" Margin="20,110,20,0"/>
+        <TextBlock x:Name="collaborationTitleTextBox" Margin="20,130,619,0" Text="Enter collaboration title..." Foreground="Gray" VerticalAlignment="Top"/>
+        <TextBlock Text="Compensation" VerticalAlignment="Top" Margin="20,164,20,0"/>
+        <TextBlock x:Name="compensationTextBox" Margin="20,185,619,0" Text="Enter compensation..." Foreground="Gray" VerticalAlignment="Top"/>
+        <TextBlock Text="Ad overview" VerticalAlignment="Top" Margin="20,220,20,0"/>
+        <TextBlock x:Name="adOverviewTextBox" Margin="20,240,619,0" Text="Enter compensation..." Foreground="Gray" VerticalAlignment="Top" Height="89"/>
         <TextBlock Text="New Price" VerticalAlignment="Top" Margin="305,129,-265,0"/>
         <TextBox x:Name="newPriceTextBox" Margin="305,154,266,0" Text="Input" Foreground="Gray" VerticalAlignment="Top" Height="26"/>
         <TextBlock Text="Please input the new content requirements" VerticalAlignment="Top" Margin="305,194,-265,0"/>
         <TextBox x:Name="newRequirementsTextBox" Margin="305,226,36,0" Text="New content requirements input" Foreground="Gray" VerticalAlignment="Top" Height="132"/>
-        <Button x:Name="sendNegotiationButton" Content="SEND NEGOTIATION" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="587,151,0,0" Width="177" Background="#800080" Foreground="White" Height="32"/>
-        <Button x:Name="cancelButton" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="668,380,0,0" Width="96" BorderBrush="#800080" Foreground="#800080" Height="24"/>
+        <Button x:Name="sendNegotiationButton" Content="SEND NEGOTIATION" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="587,151,0,0" Width="177" Background="#800080" Foreground="White" Height="32" Click="sendNegotiationButton_Click"/>
+        <Button x:Name="cancelButton" Content="CANCEL" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="668,380,0,0" Width="96" BorderBrush="#800080" Foreground="#800080" Height="24" Click="cancelButton_Click"/>
 
     </Grid>
 </UserControl>

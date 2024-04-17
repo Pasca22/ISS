@@ -136,6 +136,13 @@ namespace Iss.Windows
                     string collaborationTitle = (string)requestsListView.SelectedItem;
                     Request selectedRequest = requestService.getRequestWithTitle(collaborationTitle);
                     //open negociation page
+                    NegotiationPage negociationPage = new NegotiationPage(selectedRequest, isAdAccount);
+                    //go to the negociation page
+                    InfluencerStart mainWindow = Window.GetWindow(this) as InfluencerStart;
+                    if (mainWindow != null)
+                    {
+                        mainWindow.contentContainer.Content = negociationPage;
+                    }
 
                 }
                 catch (Exception ex)
