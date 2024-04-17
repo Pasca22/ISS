@@ -29,7 +29,7 @@
 
             <Style x:Key="RoundCornerButton" TargetType="Button">
                 <Setter Property="Height" Value="50"/>
-                <Setter Property="Width" Value="300"/>
+                <Setter Property="Width" Value="200"/>
                 <Setter Property="FontSize" Value="18"/>
                 <Setter Property="Margin" Value="10"/>
                 <Setter Property="BorderBrush" Value="Purple"/>
@@ -41,10 +41,14 @@
         </Grid.Resources>
         <!-- Step 1: Product Name -->
         <StackPanel>
-            <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" >
-            </Button>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" Click="HomeButton_Click">
+                </Button>
+                <Button Content="Account Overview" Width="100" HorizontalAlignment="Left" Margin="5" Click="AccountButton_Click">
+                </Button>
+                <TextBlock Text="Ad Details" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="170,0,0,0"></TextBlock>
 
-            <TextBlock Text="Ad Details" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10" Foreground="Purple"/>
+            </StackPanel>
             <StackPanel Grid.Column="0" Grid.Row="1" Margin="20">
                 <TextBlock Text="Product Name" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
                 <TextBox Name="textProductName" Margin="5" Height="30"/>
@@ -72,6 +76,9 @@
      Style="{StaticResource RoundCornerButton}"/>
                 <Button x:Name="DeleteAdButton" Content="Delete Ad" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
 HorizontalAlignment="Center" VerticalAlignment="Center" Click="deleteAdBtn_Click" 
+ Style="{StaticResource RoundCornerButton}"/>
+                <Button x:Name="PreviewAdButton" Content="Preview Ad" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
+HorizontalAlignment="Center" VerticalAlignment="Center" Click="previewAdBtn_Click" 
  Style="{StaticResource RoundCornerButton}"/>
             </StackPanel>
         </StackPanel>

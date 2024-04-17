@@ -65,6 +65,7 @@ namespace Iss.Windows
                 string link = textLink.Text;
                 
                 Ad oldAd = this.adService.getAdByName(ad.productName);
+                ad = oldAd;
 
                 // Create Ad object
                 Ad newAd = new Ad
@@ -130,6 +131,31 @@ namespace Iss.Windows
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of the home page
+            HomePage homePage = new HomePage();
+
+            // Replace the current user control with the home page
+            Window window = Window.GetWindow(this);
+            if (window != null && window is MainWindow mainWindow)
+            {
+                mainWindow.contentContainer.Content = mainWindow.homePage;
+            }
+        }
+
+        private void AccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            AdAccountOverview adAccountOverview = new AdAccountOverview();
+            this.Content = adAccountOverview;
+        }
+
+        private void previewAdBtn_Click(Object sender, RoutedEventArgs e)
+        {
+            MainFeed mainFeed = new MainFeed(ad);
+            this.Content = mainFeed;
         }
 
     }

@@ -41,9 +41,14 @@
         </Grid.Resources>
         <!-- Step 1: Product Name -->
         <StackPanel>
-            <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" Click="HomeButton_Click">
-            </Button>
-            <TextBlock Text="Create Ad" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10" Foreground="Purple"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" Click="HomeButton_Click">
+                </Button>
+                <Button Content="Account Overview" Width="100" HorizontalAlignment="Left" Margin="5" Click="AccountButton_Click">
+                </Button>
+                <TextBlock Text="Create Ad" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="170,0,0,0"></TextBlock>
+
+            </StackPanel>
             <StackPanel Grid.Column="0" Grid.Row="1" Margin="20">
                 <TextBlock Text="Product Name" Margin="5" FontSize="16" Style="{StaticResource PurpleTextBlock}"/>
                 <TextBox Name="textProductName" Margin="5" Height="30"/>

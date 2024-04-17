@@ -30,7 +30,8 @@ namespace Iss.Windows
         private void oneAdButton_Click(object sender, RoutedEventArgs e)
         {
             paymentService.addOneAd();
-            Payment paymentPage = new();
+            int totalAmountToPay = 5;
+            Payment paymentPage = new Payment(totalAmountToPay);
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
@@ -41,7 +42,8 @@ namespace Iss.Windows
         private void oneAdSetButton_Click(object sender, RoutedEventArgs e)
         {
             paymentService.addOneAdSet();
-            Payment paymentPage = new();
+            int totalAmountToPay = 20;
+            Payment paymentPage = new Payment(totalAmountToPay);
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
@@ -52,7 +54,8 @@ namespace Iss.Windows
         private void oneCampaignButton_Click(object sender, RoutedEventArgs e)
         {
             paymentService.addOneCampaign();
-            Payment paymentPage = new();
+            int totalAmountToPay = 150;
+            Payment paymentPage = new Payment(totalAmountToPay);
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
@@ -63,7 +66,8 @@ namespace Iss.Windows
         private void basicSubscriptionButton_Click(object sender, RoutedEventArgs e)
         {
             paymentService.addBasicSubscription();
-            Payment paymentPage = new();
+            int totalAmountToPay = 250;
+            Payment paymentPage = new Payment(totalAmountToPay);
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
@@ -74,7 +78,8 @@ namespace Iss.Windows
         private void silverSubscriptionButton_Click(object sender, RoutedEventArgs e)
         {
             paymentService.addSilverSubscription();
-            Payment paymentPage = new();
+            int totalAmountToPay = 350;
+            Payment paymentPage = new Payment(totalAmountToPay);
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
@@ -85,7 +90,8 @@ namespace Iss.Windows
         private void goldSubscriptionButton_Click(object sender, RoutedEventArgs e)
         {
             paymentService.addGoldSubscription();
-            Payment paymentPage = new();
+            int totalAmountToPay = 500;
+            Payment paymentPage = new Payment(totalAmountToPay);
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {

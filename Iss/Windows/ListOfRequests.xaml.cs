@@ -25,18 +25,29 @@ namespace Iss.Windows
     public partial class ListOfRequests : UserControl
     {
         private RequestService requestService = new RequestService();
-
+        private CollaborationService collaborationService = new CollaborationService();
+        
         public List<Request> requests { get; set; }
-        public ListOfRequests()
+        private bool isAdAccount;
+        public ListOfRequests(bool isAdAccount)
         {
             InitializeComponent();
             PopulateRequests();
+            this.isAdAccount = isAdAccount;
         }
 
         private void PopulateRequests()
         {
-            // Get requests for the current user
-            requests = requestService.getRequestsForInfluencer();
+            if(isAdAccount)
+            {
+                // Get requests for the current user
+                requests = requestService.getRequestsForAdAccount();
+            }
+            else
+            {
+                // Get requests for the current user
+                requests = requestService.getRequestsForInfluencer();
+            }
 
             requestsListView.Items.Clear();
             foreach (var request in requests)
@@ -71,7 +82,10 @@ namespace Iss.Windows
                     Request selectedRequest = requestService.getRequestWithTitle(collaborationTitle);
                     selectedRequest.influencerAccept = true;
                     requestService.deleteRequest(selectedRequest);
-                    //fa un nou collaboration
+                    
+                    Collaboration collaboration = new Collaboration(collaborationTitle, selectedRequest.adOverview, selectedRequest.compensation, selectedRequest.contentRequirements, selectedRequest.startDate, selectedRequest.endDate, true);
+                  
+                    collaborationService.addCollaboration(collaboration);
                     MessageBox.Show("Request accepted. A new collaboration was created!");
                 }
                 catch (Exception ex)

@@ -16,5 +16,11 @@ namespace Iss
             { "Silver", 3 },
             { "Gold", 5 }
         };
+        public static readonly Dictionary<string, int> CRAZY_PAYMENTS = new Dictionary<string, int>
+        {
+            { "KFC Wings", 2 },
+            { "Bananas", 1 },
+            { "Grams of Gold", 5 }
+        };
     }
 }

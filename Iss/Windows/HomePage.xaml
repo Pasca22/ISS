@@ -46,6 +46,9 @@
             <Button x:Name="NegotiationHistoryButton" Content="Go To Negotiation History" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
 HorizontalAlignment="Center" VerticalAlignment="Center" Click="NegotiationHistoryButton_Click"
  Style="{StaticResource RoundCornerButton}"/>
+            <Button x:Name="editAccountButton" Content="Edit Your Ad Account" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
+HorizontalAlignment="Center" VerticalAlignment="Center" 
+ Style="{StaticResource RoundCornerButton}" Click="editAccountButton_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

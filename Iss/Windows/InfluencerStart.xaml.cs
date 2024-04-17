@@ -27,7 +27,7 @@ namespace Iss.Windows
 
         private void GoToRequestsButton_Click(object sender, RoutedEventArgs e)
         {
-            ListOfRequests listOfRequests = new ListOfRequests();
+            ListOfRequests listOfRequests = new ListOfRequests(false);
             InfluencerStart mainWindow = Window.GetWindow(this) as InfluencerStart;
             if (mainWindow != null)
             {

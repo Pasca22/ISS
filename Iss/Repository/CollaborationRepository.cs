@@ -26,18 +26,18 @@ namespace Iss.Repository
             // Execute the query to get the influencer ID
             int influencerId = Convert.ToInt32(influencerCommand.ExecuteScalar());
 
-            string query = @"INSERT INTO Collaboration (AdAccountID, InfluencerID, Status, CollaborationOverview, ContentRequirements, CompensationPackage, CollaborationFee, StarDate, EndDate) 
-                                VALUES (@AdAccountID, @InfluencerID, @Status, @CollaborationOverview, @ContentRequirements, @CompensationPackage, @CollaborationFee, @StarDate, @EndDate)";
+            string query = @"INSERT INTO Collaboration (AdAccountID, InfluencerID, Status, AdOverview, CollaborationTitle, ContentRequirements, CollaborationFee,  StartDate, EndDate) 
+                                VALUES (@AdAccountID, @InfluencerID, @Status, @AdOverview, @CollaborationTitle, @ContentRequirements, @CollaborationFee, @StartDate, @EndDate)";
 
             SqlCommand command = new SqlCommand(query, databaseConnection.sqlConnection);
             command.Parameters.AddWithValue("@AdAccountID", User.User.getInstance().Id);
             command.Parameters.AddWithValue("@InfluencerID", influencerId);
             command.Parameters.AddWithValue("@Status", collaboration.status);
-            command.Parameters.AddWithValue("@CollaborationOverview", collaboration.collaborationOverview);
-            //command.Parameters.AddWithValue("@ContentRequirements", collaboration.ContentRequirements);
-            command.Parameters.AddWithValue("@CompensationPackage", collaboration.compensationPackage);
+            command.Parameters.AddWithValue("@AdOverview", collaboration.adOverview);
+            command.Parameters.AddWithValue("@ContentRequirements", collaboration.contentRequirement);
+            command.Parameters.AddWithValue("@CollaborationTitle", collaboration.collaborationTitle);
             command.Parameters.AddWithValue("@CollaborationFee", collaboration.collaborationFee);
-            command.Parameters.AddWithValue("@StarDate", collaboration.startDate);
+            command.Parameters.AddWithValue("@StartDate", collaboration.startDate);
             command.Parameters.AddWithValue("@EndDate", collaboration.endDate);
 
             adapter.InsertCommand = command;
@@ -67,8 +67,9 @@ namespace Iss.Repository
             {
                 collaborations.Add(new Collaboration(Convert.ToInt32(dataRow["CollaborationID"]),
                     Convert.ToDateTime(dataRow["StartDate"]), Convert.ToBoolean(dataRow["Status"]),
-                    dataRow["CollaborationOverview"].ToString(), dataRow["CompensationPackage"].ToString(), 
-                    dataRow["CollaborationFee"].ToString(), Convert.ToDateTime(dataRow["EndDate"]).Day - Convert.ToDateTime(dataRow["StartDate"]).Day));
+                    dataRow["ContentRequirements"].ToString(), dataRow["AdOverview"].ToString(),
+                    dataRow["CollaborationFee"].ToString(), Convert.ToDateTime(dataRow["EndDate"]).Day - Convert.ToDateTime(dataRow["StartDate"]).Day,
+                    dataRow["CollaborationTitle"].ToString()));
             }
 
             databaseConnection.CloseConnection();
@@ -100,9 +101,10 @@ namespace Iss.Repository
 
                 collaborations.Add(new Collaboration(Convert.ToInt32(dataRow["CollaborationID"]),
                     Convert.ToDateTime(dataRow["StartDate"]), Convert.ToBoolean(dataRow["Status"]),
-                    dataRow["CollaborationOverview"].ToString(),dataRow["CompensationPackage"].ToString(),
-                    dataRow["CollaborationFee"].ToString(),Convert.ToDateTime(dataRow["EndDate"]).Day - Convert.ToDateTime(dataRow["StartDate"]).Day
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ));
+                    dataRow["ContentRequirements"].ToString(), dataRow["AdOverview"].ToString(),
+                    dataRow["CollaborationFee"].ToString(), Convert.ToDateTime(dataRow["EndDate"]).Day - Convert.ToDateTime(dataRow["StartDate"]).Day,
+                    dataRow["CollaborationTitle"].ToString()));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
             }
             databaseConnection.CloseConnection();
             return collaborations;
