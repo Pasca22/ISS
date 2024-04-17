@@ -82,6 +82,12 @@ namespace Iss.Windows
             }
         }
 
+        private void AccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            AdAccountOverview adAccountOverview = new AdAccountOverview();
+            this.Content = adAccountOverview;
+        }
+
         private void UploadPhotoButton_Click(object sender, RoutedEventArgs e)
         {
 

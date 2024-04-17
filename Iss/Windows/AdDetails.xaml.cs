@@ -132,5 +132,24 @@ namespace Iss.Windows
             }
         }
 
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of the home page
+            HomePage homePage = new HomePage();
+
+            // Replace the current user control with the home page
+            Window window = Window.GetWindow(this);
+            if (window != null && window is MainWindow mainWindow)
+            {
+                mainWindow.contentContainer.Content = mainWindow.homePage;
+            }
+        }
+
+        private void AccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            AdAccountOverview adAccountOverview = new AdAccountOverview();
+            this.Content = adAccountOverview;
+        }
+
     }
 }

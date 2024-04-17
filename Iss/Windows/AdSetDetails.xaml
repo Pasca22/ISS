@@ -8,7 +8,14 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <StackPanel Grid.ColumnSpan="3" >
-            <TextBlock Text="Ad Set Details" FontSize="20" Margin="0,0,0,0" FontWeight="Bold" Height="33"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" Click="HomeButton_Click">
+                </Button>
+                <Button Content="Account Overview" Width="100" HorizontalAlignment="Left" Margin="5" Click="AccountButton_Click">
+                </Button>
+                <TextBlock Text="Ad Set Details" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="170,0,0,0"></TextBlock>
+
+            </StackPanel>
 
             <StackPanel Height="401" Width="792" RenderTransformOrigin="0.509,0.544">
                 <TextBlock Text="Select target Audience" FontSize="14" Margin="28,35,0,-30" FontWeight="Bold" Height="44"/>
