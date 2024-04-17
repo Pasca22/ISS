@@ -14,7 +14,14 @@
         </Grid.RowDefinitions>
 
         <!-- Title at the top center -->
-        <TextBlock Grid.Row="0" Text="Create Campaign" FontSize="20" FontWeight="Bold" Height="33" HorizontalAlignment="Center" Margin="0,10,0,10"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Home" Width="50" HorizontalAlignment="Left" Margin="5" Click="HomeButton_Click">
+            </Button>
+            <Button Content="Account Overview" Width="100" HorizontalAlignment="Left" Margin="5" Click="AccountButton_Click">
+            </Button>
+            <TextBlock Text="Create Campaign" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="160,0,0,0"></TextBlock>
+
+        </StackPanel>
 
         <!-- Main Content Grid for Left and Right Sections -->
         <Grid Grid.Row="1">
