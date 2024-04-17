@@ -28,6 +28,7 @@ namespace Iss.Windows
         private CollaborationService collaborationService = new CollaborationService();
         
         public List<Request> requests { get; set; }
+        private bool isAdAccount;
         public ListOfRequests(bool isAdAccount)
         {
             InitializeComponent();
@@ -82,7 +83,7 @@ namespace Iss.Windows
                     selectedRequest.influencerAccept = true;
                     requestService.deleteRequest(selectedRequest);
                     
-                    Collaboration collaboration = new Collaboration(collaborationTitle, selectedRequest.adOverview, selectedRequest.compensation, selectedRequest.contentRequirements, DateTime.Parse(selectedRequest.startDate), DateTime.Parse(selectedRequest.endDate), true);
+                    Collaboration collaboration = new Collaboration(collaborationTitle, selectedRequest.adOverview, selectedRequest.compensation, selectedRequest.contentRequirements, selectedRequest.startDate, selectedRequest.endDate, true);
                   
                     collaborationService.addCollaboration(collaboration);
                     MessageBox.Show("Request accepted. A new collaboration was created!");
